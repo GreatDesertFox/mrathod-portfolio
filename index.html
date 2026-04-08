@@ -4,11 +4,19 @@
   <title>Mayur Rathod | Principal Game Engineer</title>
 
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -18,22 +26,39 @@
       padding: 20px;
     }
 
-    /* NAVBAR (NOW MATCHES PROJECTS.HTML) */
-    .nav {
-      display: flex;
-      gap: 15px;
-      padding: 20px 0;
+    /* ✅ EXACT SAME NAVBAR AS PROJECTS */
+    nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      border-bottom:1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.9);
     }
 
-    .nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #94a3b8;
+    nav h1 {
+      color: var(--accent);
+      font-size:18px;
     }
 
-    .nav a.active,
-    .nav a:hover {
-      color: #38bdf8;
+    nav ul {
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav a {
+      text-decoration:none;
+      color: var(--muted);
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--accent);
     }
 
     .hero {
@@ -41,7 +66,7 @@
     }
 
     .card {
-      background: #1e293b;
+      background: var(--card);
       padding: 20px;
       border-radius: 12px;
       margin-top: 20px;
@@ -49,20 +74,24 @@
 
     h2 {
       margin-top: 20px;
-      color: #38bdf8;
+      color: var(--accent);
     }
   </style>
 </head>
 
 <body>
-<div class="container">
 
-<!-- NAVBAR -->
-<div class="nav">
-  <a href="/" class="active">Home</a>
-  <a href="/projects.html">Projects</a>
-  <a href="/contact.html">Contact</a>
-</div>
+<!-- ✅ NEW NAVBAR -->
+<nav>
+  <h1>Portfolio</h1>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
 
 <div class="hero">
   <h1>Hi, I am Mayur Rathod 👋</h1>
