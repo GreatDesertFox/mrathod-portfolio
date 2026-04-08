@@ -18,19 +18,21 @@
       padding: 20px;
     }
 
+    /* NAVBAR (NOW MATCHES PROJECTS.HTML) */
     .nav {
       display: flex;
-      justify-content: space-between;
+      gap: 15px;
       padding: 20px 0;
     }
 
     .nav a {
-      color: #94a3b8;
       text-decoration: none;
-      margin-left: 20px;
+      font-weight: bold;
+      color: #94a3b8;
     }
 
-    .nav a.active {
+    .nav a.active,
+    .nav a:hover {
       color: #38bdf8;
     }
 
@@ -55,13 +57,11 @@
 <body>
 <div class="container">
 
+<!-- NAVBAR -->
 <div class="nav">
-  <div><b>Mayur Rathod</b></div>
-  <div>
-    <a href="/" class="active">Home</a>
-    <a href="/projects.html">Projects</a>
-    <a href="/contact.html">Contact</a>
-  </div>
+  <a href="/" class="active">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/contact.html">Contact</a>
 </div>
 
 <div class="hero">
