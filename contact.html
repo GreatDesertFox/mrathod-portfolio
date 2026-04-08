@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Contact</title>
+  <title>Contact - Mayur Rathod</title>
 
   <style>
     body {
-      font-family: -apple-system;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
       background: #0f172a;
       color: #e2e8f0;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      padding: 40px;
+      padding: 20px;
+    }
+
+    /* NAVBAR (same as other pages) */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .nav a.active {
+      color: #38bdf8;
+    }
+
+    .nav a:hover {
+      color: #38bdf8;
+    }
+
+    h1 {
+      margin-top: 40px;
     }
 
     .card {
       background: #1e293b;
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .card p {
+      margin: 10px 0;
+      font-size: 16px;
     }
 
     a {
       color: #38bdf8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
+
 <div class="container">
+
+<!-- NAVBAR -->
+<div class="nav">
+  <div><b>Mayur Rathod</b></div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/contact.html" class="active">Contact</a>
+  </div>
+</div>
 
 <h1>Contact</h1>
 
@@ -37,10 +86,13 @@
   <p><b>Phone:</b> +91 9833561646</p>
   <p><b>Email:</b> mayur1689@yahoo.com</p>
   <p><b>LinkedIn:</b> 
-    <a href="https://www.linkedin.com/in/mrathodgamedev/">linkedin.com/in/mrathodgamedev</a>
+    <a href="https://www.linkedin.com/in/mrathodgamedev/">
+      linkedin.com/in/mrathodgamedev
+    </a>
   </p>
 </div>
 
 </div>
+
 </body>
 </html>
