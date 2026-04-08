@@ -1,175 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio | Projects</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio | Projects</title>
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --accent: #38bdf8;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-    }
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+}
 
-    * {
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+body {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: var(--text);
+  font-family: sans-serif;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
+nav {
+  display:flex;
+  justify-content:center;
+  padding:16px;
+}
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+nav a { color: var(--muted); margin:0 15px; text-decoration:none; }
+nav a.active { color: var(--text); }
 
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
 
-      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-    }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:25px;
+}
 
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
+.card {
+  background: var(--card);
+  border-radius:14px;
+  overflow:hidden;
+  transition: all 0.35s ease;
+}
 
-    nav a {
-      position: relative;
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 6px 4px;
-      transition: color 0.3s ease;
-    }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-    /* Hover underline animation */
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+.content {
+  padding:20px;
+}
 
-    nav a:hover {
-      color: var(--text);
-    }
+h3 { color: var(--accent); }
 
-    /* Active tab */
-    nav a.active {
-      color: var(--text);
-    }
-
-    nav a.active::after {
-      width: 100%;
-    }
-
-    /* LAYOUT */
-    .container {
-      max-width:1200px;
-      margin:auto;
-      padding:40px 20px;
-    }
-
-    h1 {
-      margin-bottom:25px;
-    }
-
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
-      gap:25px;
-    }
-
-    /* CARD */
-    .card {
-      background: var(--card);
-      border-radius:14px;
-      overflow:hidden;
-      transition: all 0.35s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    }
-
-    .card img {
-      width:100%;
-      height:200px;
-      object-fit:cover;
-    }
-
-    .content {
-      padding:20px;
-    }
-
-    h3 {
-      color: var(--accent);
-      margin-bottom:10px;
-      font-size:18px;
-    }
-
-    p {
-      font-size:14px;
-      color: var(--muted);
-      margin-bottom:8px;
-    }
-
-    .meta {
-      margin-top:10px;
-      font-size:13px;
-      line-height:1.6;
-    }
-
-    .contribution {
-      margin-top:12px;
-      font-size:13px;
-      color:#cbd5f5;
-    }
-
-    @media (max-width:768px) {
-      nav {
-        padding:15px 20px;
-      }
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
 <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+<a href="index.html">Home</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 <div class="container">
