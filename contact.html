@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Contact - Mayur Rathod</title>
+  <title>Mayur Rathod | Principal Game Engineer</title>
 
   <style>
     :root {
-      --bg:#0f172a;
-      --card:#1e293b;
-      --accent:#38bdf8;
-      --text:#e2e8f0;
-      --muted:#94a3b8;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
     }
 
     body {
@@ -17,29 +17,25 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
       padding: 20px;
     }
 
-    /* ✅ SAME NAVBAR */
+    /* ✅ UNIFIED NAVBAR */
     nav {
       display:flex;
-      justify-content:space-between;
+      justify-content:flex-end;
       align-items:center;
       padding:20px 40px;
       border-bottom:1px solid #1e293b;
       position: sticky;
       top: 0;
       background: rgba(15,23,42,0.9);
-    }
-
-    nav h1 {
-      color: var(--accent);
-      font-size:18px;
     }
 
     nav ul {
@@ -59,51 +55,90 @@
       color: var(--accent);
     }
 
-    h1 {
-      margin-top: 40px;
+    .hero {
+      padding: 60px 0;
     }
 
     .card {
       background: var(--card);
-      padding: 25px;
+      padding: 20px;
       border-radius: 12px;
       margin-top: 20px;
     }
 
-    a {
+    h2 {
+      margin-top: 20px;
       color: var(--accent);
-      text-decoration:none;
     }
   </style>
 </head>
 
 <body>
 
-<!-- ✅ NAVBAR -->
 <nav>
-  <h1>Portfolio</h1>
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
 <div class="container">
 
-<h1>Contact</h1>
+<div class="hero">
+  <h1>Hi, I am Mayur Rathod 👋</h1>
+  <h3>Principal Game Engineer</h3>
+</div>
 
 <div class="card">
-  <p><b>Phone:</b> +91 9833561646</p>
-  <p><b>Email:</b> mayur1689@yahoo.com</p>
-  <p><b>LinkedIn:</b> 
-    <a href="https://www.linkedin.com/in/mrathodgamedev/">
-      linkedin.com/in/mrathodgamedev
-    </a>
+  <p>
+    I am a seasoned software engineer with over 13 years of experience in the gaming industry.
+    Throughout my career, I have cultivated a broad skill set across various game genres,
+    consistently delivering immersive and engaging gaming experiences.
+  </p>
+
+  <p>
+    I excel at building high-performing teams and crafting immersive experiences through game
+    development using Unity3D and C++.
   </p>
 </div>
 
+<div class="card">
+  <h2>Technical Skills</h2>
+  <ul>
+    <li>Game Engines - Unity3D</li>
+    <li>Programming Languages - C#, C++, PHP, Python, Shell Script, JavaScript</li>
+    <li>Backend Development - Playfab, RESTful APIs, Node.js, Express, PHP</li>
+    <li>Object-Oriented Programming (OOP) Principles</li>
+    <li>Debugging and Troubleshooting</li>
+    <li>Learning - C++, Unreal Engine, Cocos2d, Raylib</li>
+  </ul>
 </div>
 
+<div class="card">
+  <h2>Management Skills</h2>
+  <ul>
+    <li>Engineering Management</li>
+    <li>Team Building</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Industry Knowledge</h2>
+  <ul>
+    <li>Build Automation - Jenkins</li>
+    <li>Cloud Infrastructure - AWS (EC2, S3)</li>
+    <li>Version Control Tools - GitHub, Bitbucket, SVN</li>
+    <li>CI/CD (Continuous Integration / Deployment)</li>
+    <li>Test-Driven Development (TDD) & Unit Testing</li>
+    <li>Software Architecture & Design Patterns</li>
+    <li>SOLID Principles</li>
+    <li>Zenject (DI framework)</li>
+    <li>RESTful API Integration</li>
+    <li>Shell Scripting</li>
+  </ul>
+</div>
+
+</div>
 </body>
 </html>
