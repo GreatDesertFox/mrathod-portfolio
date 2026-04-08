@@ -1,234 +1,355 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Projects - Mayur Rathod</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Projects</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      background: #f5f7f8;
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
     }
 
-    .nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #0077cc;
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* NAVBAR */
+    nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      border-bottom:1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.9);
+    }
+
+    nav h1 {
+      color: var(--accent);
+      font-size:18px;
+    }
+
+    nav ul {
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav a {
+      text-decoration:none;
+      color: var(--muted);
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width:1200px;
+      margin:auto;
+      padding:40px 20px;
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom:25px;
     }
 
-    .project {
-      display: flex;
-      gap: 20px;
-      background: white;
-      padding: 20px;
-      margin-top: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      align-items: center;
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:25px;
     }
 
-    .project img {
-      width: 220px;
-      height: auto;
-      border-radius: 10px;
+    /* CARD */
+    .card {
+      background: var(--card);
+      border-radius:14px;
+      overflow:hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
-    .project-content {
-      flex: 1;
+    .card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
 
-    .section-title {
-      font-weight: bold;
-      margin-top: 8px;
+    .card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
     }
 
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-      .project {
-        flex-direction: column;
-        text-align: center;
+    .content {
+      padding:20px;
+    }
+
+    h3 {
+      color: var(--accent);
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    p {
+      font-size:14px;
+      color: var(--muted);
+      margin-bottom:8px;
+    }
+
+    .meta {
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .contribution {
+      margin-top:12px;
+      font-size:13px;
+      color:#cbd5f5;
+    }
+
+    @media (max-width:768px) {
+      nav {
+        padding:15px 20px;
       }
-
-      .project img {
-        width: 100%;
-        max-width: 400px;
-      }
     }
+
   </style>
 </head>
 
 <body>
 
-<div class="nav">
-  <a href="/">Home</a>
-  <a href="/projects.html" class="active">Projects</a>
-  <a href="/contact.html">Contact</a>
-</div>
+<nav>
+  <h1>Portfolio</h1>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-<h1>Projects</h1>
+<div class="container">
+  <h1>Projects</h1>
 
-<!-- ================= PROJECTS ================= -->
+  <div class="grid">
 
-<div class="project">
-  <img src="/images/projects/yoga-quest.webp">
-  <div class="project-content">
-    <h2>Yoga Quest Relaxing Puzzle</h2>
-    <p>Relaxation and meditation-based puzzle game set in the Himalayas.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, Node.js, C#</p>
-    <p><b>Role:</b> Principal Software Engineer</p>
-    <p><b>Company:</b> LongbowGames</p>
-  </div>
-</div>
+    <!-- PROJECTS START -->
 
-<div class="project">
-  <img src="/images/projects/battle-bay.png">
-  <div class="project-content">
-    <h2>Battle Bay</h2>
-    <p>Multiplayer naval combat game with real-time team battles.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, Protobuf, C#, C++</p>
-    <p><b>Role:</b> Principal Software Engineer</p>
-    <p><b>Company:</b> LongbowGames</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/yoga-quest.webp">
+      <div class="content">
+        <h3>Yoga Quest Relaxing Puzzle</h3>
+        <p>Relaxation and meditation-based puzzle game set in the Himalayas.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, Node.js, C#<br>
+          Role: Principal Software Engineer<br>
+          Company: LongbowGames
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> System architecture, performance tuning, gameplay systems.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/mine-rescue.webp">
-  <div class="project-content">
-    <h2>Mine Rescue</h2>
-    <p>Mining simulation game focused on exploration and resource collection.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, PHP, MySQL</p>
-    <p><b>Role:</b> Lead Engineer</p>
-    <p><b>Company:</b> LongbowGames</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/battle-bay.png">
+      <div class="content">
+        <h3>Battle Bay</h3>
+        <p>Multiplayer naval combat game with real-time team battles.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, Protobuf, C#, C++<br>
+          Role: Principal Software Engineer<br>
+          Company: LongbowGames
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Multiplayer systems, optimization, architecture.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/almost-a-hero.webp">
-  <div class="project-content">
-    <h2>Almost a Hero</h2>
-    <p>Idle RPG adventure game with humorous characters.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, Playfab</p>
-    <p><b>Role:</b> Lead Engineer</p>
-    <p><b>Company:</b> LongbowGames</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/mine-rescue.webp">
+      <div class="content">
+        <h3>Mine Rescue</h3>
+        <p>Mining simulation game focused on exploration and resource collection.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, PHP, MySQL<br>
+          Role: Lead Engineer<br>
+          Company: LongbowGames
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Core gameplay systems, backend integration.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/sachin-saga.webp">
-  <div class="project-content">
-    <h2>Sachin Saga Cricket Champions</h2>
-    <p>3D cricket game with advanced AI and multiplayer features.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, Playblazer</p>
-    <p><b>Role:</b> Senior Game Programmer</p>
-    <p><b>Company:</b> JetSynthesys</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/almost-a-hero.webp">
+      <div class="content">
+        <h3>Almost a Hero</h3>
+        <p>Idle RPG adventure game with humorous characters.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, Playfab<br>
+          Role: Lead Engineer<br>
+          Company: LongbowGames
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Live ops systems, optimization, feature delivery.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/airlift.png">
-  <div class="project-content">
-    <h2>Airlift</h2>
-    <p>Air combat rescue game with progressive upgrades and missions.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, C#</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Vroovy / HungamaGameShastra</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/sachin-saga.webp">
+      <div class="content">
+        <h3>Sachin Saga Cricket Champions</h3>
+        <p>3D cricket game with advanced AI and multiplayer features.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, Playblazer<br>
+          Role: Senior Game Programmer<br>
+          Company: JetSynthesys
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> AI systems, gameplay logic, performance tuning.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/flying-jatt.png">
-  <div class="project-content">
-    <h2>Flying Jatt</h2>
-    <p>Endless runner featuring Bollywood action gameplay.</p>
-    <p><b>Platform:</b> Android / iOS</p>
-    <p><b>Tech:</b> Unity3D, C#</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Vroovy / HungamaGameShastra</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/airlift.png">
+      <div class="content">
+        <h3>Airlift</h3>
+        <p>Air combat rescue game with progressive upgrades and missions.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, C#<br>
+          Role: Game Developer<br>
+          Company: Vroovy / HungamaGameShastra
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Gameplay features, mechanics implementation.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/kirssh-3.jpg">
-  <div class="project-content">
-    <h2>Krrish 3: The Game</h2>
-    <p>Superhero action game with combat mechanics.</p>
-    <p><b>Platform:</b> Android / iOS / Windows</p>
-    <p><b>Tech:</b> Unity3D, SmartfoxServer</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Vroovy / HungamaGameShastra</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/flying-jatt.png">
+      <div class="content">
+        <h3>Flying Jatt</h3>
+        <p>Endless runner featuring Bollywood action gameplay.</p>
+        <div class="meta">
+          Platform: Android / iOS<br>
+          Tech: Unity3D, C#<br>
+          Role: Game Developer<br>
+          Company: Vroovy / HungamaGameShastra
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Core gameplay loop, mechanics implementation.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/virtual-patient-management.jpg">
-  <div class="project-content">
-    <h2>Virtual Patient Management</h2>
-    <p>Healthcare simulation training system.</p>
-    <p><b>Platform:</b> Web / PC</p>
-    <p><b>Tech:</b> Unity3D, SmartfoxServer</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Indusgeeks</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/kirssh-3.jpg">
+      <div class="content">
+        <h3>Krrish 3: The Game</h3>
+        <p>Superhero action game with combat mechanics.</p>
+        <div class="meta">
+          Platform: Android / iOS / Windows<br>
+          Tech: Unity3D, SmartfoxServer<br>
+          Role: Game Developer<br>
+          Company: Vroovy / HungamaGameShastra
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Combat systems, gameplay implementation.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/nurse-training.jpg">
-  <div class="project-content">
-    <h2>Nurse Training</h2>
-    <p>Gamified healthcare training solution.</p>
-    <p><b>Platform:</b> Web</p>
-    <p><b>Tech:</b> Unity3D, SmartfoxServer</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Indusgeeks</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/virtual-patient-management.jpg">
+      <div class="content">
+        <h3>Virtual Patient Management</h3>
+        <p>Healthcare simulation training system.</p>
+        <div class="meta">
+          Platform: Web / PC<br>
+          Tech: Unity3D, SmartfoxServer<br>
+          Role: Game Developer<br>
+          Company: Indusgeeks
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Simulation systems, UI workflows.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/mass-casualty-scenario.jpg">
-  <div class="project-content">
-    <h2>Mass Casualty Scenario</h2>
-    <p>Disaster response training simulation.</p>
-    <p><b>Platform:</b> Web</p>
-    <p><b>Tech:</b> Unity3D, SmartfoxServer</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Indusgeeks</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/nurse-training.jpg">
+      <div class="content">
+        <h3>Nurse Training</h3>
+        <p>Gamified healthcare training solution.</p>
+        <div class="meta">
+          Platform: Web<br>
+          Tech: Unity3D, SmartfoxServer<br>
+          Role: Game Developer<br>
+          Company: Indusgeeks
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Training modules, system logic.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/dialysis-management.jpg">
-  <div class="project-content">
-    <h2>Dialysis Management</h2>
-    <p>Medical training simulation system.</p>
-    <p><b>Platform:</b> Web / PC</p>
-    <p><b>Tech:</b> Unity3D, SmartfoxServer</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Indusgeeks</p>
-  </div>
-</div>
+    <div class="card">
+      <img src="/images/projects/mass-casualty-scenario.jpg">
+      <div class="content">
+        <h3>Mass Casualty Scenario</h3>
+        <p>Disaster response training simulation.</p>
+        <div class="meta">
+          Platform: Web<br>
+          Tech: Unity3D, SmartfoxServer<br>
+          Role: Game Developer<br>
+          Company: Indusgeeks
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Scenario systems, interaction flows.</p>
+      </div>
+    </div>
 
-<div class="project">
-  <img src="/images/projects/grand-master-influence.jpg">
-  <div class="project-content">
-    <h2>Grandmasters of Influence</h2>
-    <p>Leadership training simulation for enterprise.</p>
-    <p><b>Platform:</b> Windows / Mac</p>
-    <p><b>Tech:</b> Unity3D</p>
-    <p><b>Role:</b> Game Developer</p>
-    <p><b>Company:</b> Indusgeeks</p>
+    <div class="card">
+      <img src="/images/projects/dialysis-management.jpg">
+      <div class="content">
+        <h3>Dialysis Management</h3>
+        <p>Medical training simulation system.</p>
+        <div class="meta">
+          Platform: Web / PC<br>
+          Tech: Unity3D, SmartfoxServer<br>
+          Role: Game Developer<br>
+          Company: Indusgeeks
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Simulation logic, system workflows.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/projects/grand-master-influence.jpg">
+      <div class="content">
+        <h3>Grandmasters of Influence</h3>
+        <p>Leadership training simulation for enterprise.</p>
+        <div class="meta">
+          Platform: Windows / Mac<br>
+          Tech: Unity3D<br>
+          Role: Game Developer<br>
+          Company: Indusgeeks
+        </div>
+        <p class="contribution"><strong>My Contributions:</strong> Core systems, interaction design.</p>
+      </div>
+    </div>
+
+    <!-- PROJECTS END -->
+
   </div>
 </div>
 
