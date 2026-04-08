@@ -1,26 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contact</title>
-<style>
-body { background:#020617; color:white; font-family:sans-serif; }
-.card {
-margin:100px auto;
-padding:30px;
-background:#1e293b;
-width:320px;
-border-radius:10px;
-text-align:center;
-}
-</style>
+  <title>Contact - Mayur Rathod</title>
+
+  <style>
+    :root {
+      --bg:#0f172a;
+      --card:#1e293b;
+      --accent:#38bdf8;
+      --text:#e2e8f0;
+      --muted:#94a3b8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* ✅ UNIFIED NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color 0.3s ease;
+    }
+
+    /* Hover underline animation */
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* Active tab */
+    nav a.active {
+      color: var(--text);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    h1 {
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration:none;
+    }
+  </style>
 </head>
 
 <body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<h1>Contact</h1>
+
 <div class="card">
-<h2>Contact Me</h2>
-<p>Phone: +91 9833561646</p>
-<p>Email: mayur1689@yahoo.com</p>
-<p>LinkedIn: linkedin.com/in/mrathodgamedev</p>
+  <p><b>Phone:</b> +91 9833561646</p>
+  <p><b>Email:</b> mayur1689@yahoo.com</p>
+  <p><b>LinkedIn:</b> 
+    <a href="https://www.linkedin.com/in/mrathodgamedev/">
+      linkedin.com/in/mrathodgamedev
+    </a>
+  </p>
 </div>
+
+</div>
+
 </body>
 </html>
