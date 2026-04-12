@@ -6,70 +6,367 @@
   <title>Mayur Rathod | Principal Game Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
+
   <style>
-    .hero { padding: 80px 0 20px; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* GRID BACKGROUND */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 4px;
+      font-family: 'Share Tech Mono', monospace;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover, nav a.active { color: var(--accent); }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 20px;
+    }
 
     .hero-tag {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 12px; color: var(--accent);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      margin-bottom: 16px; opacity: 0;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.2s;
     }
+
     .hero-tag::before { content: '> '; opacity: 0.5; }
 
     .hero h1 {
       font-family: 'Rajdhani', sans-serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 700; line-height: 1.05; margin-bottom: 16px;
-      opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s;
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
     }
+
     .hero h1 span {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .typing-container {
-      font-family: 'Share Tech Mono', monospace; font-size: 1.1rem;
-      color: var(--accent3); margin-bottom: 32px; height: 28px;
-      opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--accent3);
+      margin-bottom: 32px;
+      height: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.6s;
     }
-    .typing-text::after { content: '|'; animation: blink 0.7s infinite; color: var(--accent); }
 
+    .typing-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+      color: var(--accent);
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* STATS ROW */
     .stats {
-      display: flex; margin: 40px 0; opacity: 0;
+      display: flex;
+      margin: 40px 0;
+      opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.8s;
-      border: 1px solid var(--card-border); border-radius: 12px;
-      overflow: hidden; background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
     }
-    .stat { flex: 1; padding: 20px 24px; text-align: center; border-right: 1px solid var(--card-border); transition: background 0.3s; }
+
+    .stat {
+      flex: 1;
+      padding: 20px 24px;
+      text-align: center;
+      border-right: 1px solid var(--card-border);
+      transition: background 0.3s;
+    }
+
     .stat:last-child { border-right: none; }
-    .stat:hover { background: color-mix(in srgb, var(--accent) 5%, transparent); }
-    .stat-number { font-family: 'Rajdhani', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; display: block; }
-    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; font-family: 'Share Tech Mono', monospace; }
+    .stat:hover { background: rgba(0,212,255,0.05); }
 
-    .skill-group { margin-bottom: 20px; }
-    .skill-group:last-child { margin-bottom: 0; }
-    .skill-group-label { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+    .stat-number {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
 
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent); }
-    .timeline-item { position: relative; margin-bottom: 28px; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot { position: absolute; left: -25px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); border: 2px solid var(--bg); }
-    .timeline-item:nth-child(2) .timeline-dot { background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
-    .timeline-item:nth-child(3) .timeline-dot { background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
-    .timeline-company { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
-    .timeline-role { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-top: 2px; }
-    .timeline-period { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      font-family: 'Share Tech Mono', monospace;
+    }
 
-    .card { opacity: 0; animation: fadeUp 0.5s ease forwards; }
+    /* SECTION TITLE */
+    .section-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 3px;
+      height: 18px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--card-border), transparent);
+    }
+
+    /* CARD */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
     .card:nth-child(1) { animation-delay: 0.9s; }
     .card:nth-child(2) { animation-delay: 1.0s; }
     .card:nth-child(3) { animation-delay: 1.1s; }
     .card:nth-child(4) { animation-delay: 1.2s; }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+    .card:hover::before { opacity: 1; }
+
     .card p { color: #94a3b8; font-size: 15px; line-height: 1.8; }
     .card p + p { margin-top: 12px; }
+
+    /* CORNER DECORATION */
+    .card-corner {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 20px; height: 20px;
+      border-top: 2px solid rgba(0,212,255,0.2);
+      border-right: 2px solid rgba(0,212,255,0.2);
+    }
+
+    /* SKILL TAGS */
+    .skill-group { margin-bottom: 20px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1px solid;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .tag-engine  { color: #00d4ff; border-color: rgba(0,212,255,0.3);   background: rgba(0,212,255,0.06);   }
+    .tag-lang    { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.06); }
+    .tag-backend { color: #10b981; border-color: rgba(16,185,129,0.3);  background: rgba(16,185,129,0.06);  }
+    .tag-tool    { color: #f59e0b; border-color: rgba(245,158,11,0.3);  background: rgba(245,158,11,0.06);  }
+    .tag-mgmt    { color: #f472b6; border-color: rgba(244,114,182,0.3); background: rgba(244,114,182,0.06); }
+
+    .tag-engine:hover  { background: rgba(0,212,255,0.15);   box-shadow: 0 0 12px rgba(0,212,255,0.2);   }
+    .tag-lang:hover    { background: rgba(167,139,250,0.15); box-shadow: 0 0 12px rgba(167,139,250,0.2); }
+    .tag-backend:hover { background: rgba(16,185,129,0.15);  box-shadow: 0 0 12px rgba(16,185,129,0.2);  }
+    .tag-tool:hover    { background: rgba(245,158,11,0.15);  box-shadow: 0 0 12px rgba(245,158,11,0.2);  }
+    .tag-mgmt:hover    { background: rgba(244,114,182,0.15); box-shadow: 0 0 12px rgba(244,114,182,0.2); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 28px; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    }
+
+    .timeline-item { position: relative; margin-bottom: 28px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -25px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-item:nth-child(2) .timeline-dot { background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
+    .timeline-item:nth-child(3) .timeline-dot { background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
+    .timeline-item:nth-child(4) .timeline-dot { background: #f59e0b;        box-shadow: 0 0 10px #f59e0b; }
+    .timeline-item:nth-child(5) .timeline-dot { background: #f472b6;        box-shadow: 0 0 10px #f472b6; }
+    .timeline-item:nth-child(6) .timeline-dot { background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
+    .timeline-item:nth-child(7) .timeline-dot { background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
+
+    .timeline-company { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .timeline-role    { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-top: 2px; }
+    .timeline-period  { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .timeline-dates   { font-size: 11px; color: var(--accent); font-family: 'Share Tech Mono', monospace; letter-spacing: 0.05em; margin-top: 3px; opacity: 0.8; }
+    .timeline-duration { font-size: 11px; color: var(--muted); font-family: 'Share Tech Mono', monospace; margin-top: 1px; }
+
+    /* RESUME BUTTON */
+    .btn-resume {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 11px 24px;
+      background: transparent;
+      border: 1px solid rgba(0,212,255,0.5);
+      color: var(--accent);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 1s;
+    }
+    .btn-resume:hover {
+      background: rgba(0,212,255,0.1);
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(0,212,255,0.2);
+    }
+    .btn-resume svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     @media (max-width: 600px) {
       .stats { flex-direction: column; }
@@ -78,29 +375,52 @@
     }
   </style>
 </head>
+
 <body>
 
 <nav>
   <ul>
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="/" class="active">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
 <div class="container">
+
   <div class="hero">
     <div class="hero-tag">Principal Game Engineer</div>
     <h1>Mayur <span>Rathod</span></h1>
-    <div class="typing-container"><span class="typing-text" id="typing"></span></div>
+    <div class="typing-container">
+      <span class="typing-text" id="typing"></span>
+    </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years Experience</span></div>
-    <div class="stat"><span class="stat-number">10+</span><span class="stat-label">Games Shipped</span></div>
-    <div class="stat"><span class="stat-number">2</span><span class="stat-label">Platforms</span></div>
-    <div class="stat"><span class="stat-number">4</span><span class="stat-label">Companies</span></div>
-  </div>
+    <div class="stat">
+      <span class="stat-number">13+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">Games Shipped</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">2</span>
+      <span class="stat-label">Platforms</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">7</span>
+      <span class="stat-label">Companies</span>
+    </div>
+  </div><!-- /.stats -->
+
+  <a href="/resume.pdf" download="Mayur_Rathod_Resume.pdf" class="btn-resume">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v8M5 7l3 3 3-3M2 13h12"/>
+    </svg>
+    Download Resume
+  </a>
 
   <div class="card">
     <div class="card-corner"></div>
@@ -112,25 +432,63 @@
   <div class="card">
     <div class="card-corner"></div>
     <div class="section-title">Skills</div>
+
     <div class="skill-group">
-      <div class="skill-group-label">// Game Engines</div>
-      <div class="tags"><span class="tag tag-engine">Unity3D</span><span class="tag tag-engine">Unreal Engine</span><span class="tag tag-engine">Cocos2d</span><span class="tag tag-engine">Raylib</span></div>
+      <div class="skill-group-label">▸ Game Engines</div>
+      <div class="tags">
+        <span class="tag tag-engine">Unity3D</span>
+        <span class="tag tag-engine">Unreal Engine</span>
+        <span class="tag tag-engine">Cocos2d</span>
+        <span class="tag tag-engine">Raylib</span>
+      </div>
     </div>
+
     <div class="skill-group">
-      <div class="skill-group-label">// Languages</div>
-      <div class="tags"><span class="tag tag-lang">C#</span><span class="tag tag-lang">C++</span><span class="tag tag-lang">Python</span><span class="tag tag-lang">JavaScript</span><span class="tag tag-lang">PHP</span><span class="tag tag-lang">Shell Script</span></div>
+      <div class="skill-group-label">▸ Languages</div>
+      <div class="tags">
+        <span class="tag tag-lang">C#</span>
+        <span class="tag tag-lang">C++</span>
+        <span class="tag tag-lang">Python</span>
+        <span class="tag tag-lang">JavaScript</span>
+        <span class="tag tag-lang">PHP</span>
+        <span class="tag tag-lang">Shell Script</span>
+      </div>
     </div>
+
     <div class="skill-group">
-      <div class="skill-group-label">// Backend & Services</div>
-      <div class="tags"><span class="tag tag-backend">Playfab</span><span class="tag tag-backend">Node.js</span><span class="tag tag-backend">Express</span><span class="tag tag-backend">RESTful APIs</span><span class="tag tag-backend">AWS EC2</span><span class="tag tag-backend">AWS S3</span></div>
+      <div class="skill-group-label">▸ Backend &amp; Services</div>
+      <div class="tags">
+        <span class="tag tag-backend">Playfab</span>
+        <span class="tag tag-backend">Node.js</span>
+        <span class="tag tag-backend">Express</span>
+        <span class="tag tag-backend">RESTful APIs</span>
+        <span class="tag tag-backend">AWS EC2</span>
+        <span class="tag tag-backend">AWS S3</span>
+      </div>
     </div>
+
     <div class="skill-group">
-      <div class="skill-group-label">// Tools & Practices</div>
-      <div class="tags"><span class="tag tag-tool">Jenkins</span><span class="tag tag-tool">GitHub</span><span class="tag tag-tool">Bitbucket</span><span class="tag tag-tool">CI/CD</span><span class="tag tag-tool">TDD</span><span class="tag tag-tool">SOLID</span><span class="tag tag-tool">Zenject</span><span class="tag tag-tool">Protobuf</span></div>
+      <div class="skill-group-label">▸ Tools &amp; Practices</div>
+      <div class="tags">
+        <span class="tag tag-tool">Jenkins</span>
+        <span class="tag tag-tool">GitHub</span>
+        <span class="tag tag-tool">Bitbucket</span>
+        <span class="tag tag-tool">CI/CD</span>
+        <span class="tag tag-tool">TDD</span>
+        <span class="tag tag-tool">SOLID</span>
+        <span class="tag tag-tool">Zenject</span>
+        <span class="tag tag-tool">Protobuf</span>
+      </div>
     </div>
+
     <div class="skill-group">
-      <div class="skill-group-label">// Management</div>
-      <div class="tags"><span class="tag tag-mgmt">Engineering Management</span><span class="tag tag-mgmt">Team Building</span><span class="tag tag-mgmt">Software Architecture</span><span class="tag tag-mgmt">Design Patterns</span></div>
+      <div class="skill-group-label">▸ Management</div>
+      <div class="tags">
+        <span class="tag tag-mgmt">Engineering Management</span>
+        <span class="tag tag-mgmt">Team Building</span>
+        <span class="tag tag-mgmt">Software Architecture</span>
+        <span class="tag tag-mgmt">Design Patterns</span>
+      </div>
     </div>
   </div>
 
@@ -138,13 +496,100 @@
     <div class="card-corner"></div>
     <div class="section-title">Career</div>
     <div class="timeline">
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-company">LongbowGames</div><div class="timeline-role">Principal Software Engineer</div><div class="timeline-period">Battle Bay · Almost a Hero · Mine Rescue · Yoga Quest</div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-company">JetSynthesys</div><div class="timeline-role">Senior Game Programmer</div><div class="timeline-period">Sachin Saga Cricket Champions</div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-company">Vroovy / HungamaGameShastra</div><div class="timeline-role">Game Developer</div><div class="timeline-period">Airlift · Flying Jatt · Krrish 3</div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-company">Indusgeeks</div><div class="timeline-role">Game Developer</div><div class="timeline-period">Healthcare Simulations · Training Systems</div></div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">QilaGames</div>
+        <div class="timeline-role">Principal Software Engineer</div>
+        <div class="timeline-dates">Mar 2025 – Present</div>
+        <div class="timeline-duration">~ 1 yr · Bangalore, KA</div>
+        <div class="timeline-period">Ludo Hero</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Longbow Games Pvt. Ltd.</div>
+        <div class="timeline-role">Principal Software Engineer</div>
+        <div class="timeline-dates">Jun 2021 – Feb 2025</div>
+        <div class="timeline-duration">3 yrs 9 mo · Mysuru, KA</div>
+        <div class="timeline-period">Battle Bay · Almost a Hero · Mine Rescue · Yoga Quest</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">JetSynthesys</div>
+        <div class="timeline-role">Sr. Game Programmer</div>
+        <div class="timeline-dates">Nov 2018 – May 2021</div>
+        <div class="timeline-duration">2 yrs 7 mo · Pune, MH</div>
+        <div class="timeline-period">Sachin Saga Cricket Champions</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Emdep – Testboards</div>
+        <div class="timeline-role">Software Developer</div>
+        <div class="timeline-dates">Jun 2017 – Oct 2018</div>
+        <div class="timeline-duration">1 yr 5 mo · Pune, MH</div>
+        <div class="timeline-period">AR / HoloLens · Automotive industry</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Vroovy Hungama Gameshastra</div>
+        <div class="timeline-role">Game Developer</div>
+        <div class="timeline-dates">Jan 2015 – May 2017</div>
+        <div class="timeline-duration">2 yrs 5 mo · Mumbai, MH</div>
+        <div class="timeline-period">Airlift · Flying Jatt · Krrish 3</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Anuva Technologies Pvt. Ltd.</div>
+        <div class="timeline-role">Game Developer</div>
+        <div class="timeline-dates">May 2014 – Dec 2014</div>
+        <div class="timeline-duration">8 mo · Pune, MH</div>
+        <div class="timeline-period">Prototyping · SDK Integration · Gameplay Development</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Indusgeeks Solutions Pvt. Ltd.</div>
+        <div class="timeline-role">Software Developer</div>
+        <div class="timeline-dates">Jul 2012 – Apr 2014</div>
+        <div class="timeline-duration">1 yr 10 mo · Mumbai, MH</div>
+        <div class="timeline-period">Healthcare Simulations · Training Systems</div>
+      </div>
+
     </div>
   </div>
+
 </div>
+
+<script>
+  const phrases = [
+    'Unity3D Expert',
+    'Principal Game Engineer',
+    '13+ Years in Gaming',
+    'Team Builder & Architect',
+    'Multiplayer Systems Dev',
+  ];
+
+  let pi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typing');
+
+  function type() {
+    const word = phrases[pi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 40 : 80);
+  }
+  type();
+</script>
 
 <div class="theme-switcher">
   <div class="theme-options" id="themeOptions">
@@ -156,19 +601,5 @@
   </div>
   <button class="theme-toggle-btn" id="themeToggle">⬡ THEME</button>
 </div>
-
-<script src="theme.js"></script>
-<script>
-  const phrases = ['Unity3D Expert','Principal Game Engineer','13+ Years in Gaming','Team Builder & Architect','Multiplayer Systems Dev'];
-  let pi = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typing');
-  function type() {
-    const word = phrases[pi];
-    if (!deleting) { el.textContent = word.slice(0, ++ci); if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; } }
-    else { el.textContent = word.slice(0, --ci); if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; } }
-    setTimeout(type, deleting ? 40 : 80);
-  }
-  type();
-</script>
 </body>
 </html>

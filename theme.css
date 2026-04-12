@@ -1,93 +1,144 @@
-/* ============================================
-   THEME.CSS — Shared config for all pages
-   To switch theme: change data-theme on <html>
+/* ============================================================
+   THEME.CSS — Shared styles + color themes for all pages
+   Change theme via the ⬡ THEME button (bottom-right corner)
+   or set data-theme on <html>:
    Options: "cyber" | "ember" | "forest" | "void" | "aurora"
-   ============================================ */
+   ============================================================ */
 
-/* ── DEFAULT / CYBER (blue) ── */
+/* ── CYBER (default — blue/cyan) ── */
 :root,
 [data-theme="cyber"] {
-  --bg:          #0a0e1a;
-  --card:        #111827;
-  --card-border: #1e2d45;
-  --accent:      #00d4ff;
-  --accent2:     #7c3aed;
-  --accent3:     #10b981;
-  --text:        #e2e8f0;
-  --muted:       #64748b;
-  --grid-color:  rgba(0, 212, 255, 0.03);
-  --nav-bg:      rgba(10, 14, 26, 0.85);
-  --nav-border:  rgba(0, 212, 255, 0.1);
-  --glow:        rgba(0, 212, 255, 0.2);
+  --bg:           #0a0e1a;
+  --card:         #111827;
+  --card-border:  #1e2d45;
+  --accent:       #00d4ff;
+  --accent2:      #7c3aed;
+  --accent3:      #10b981;
+  --text:         #e2e8f0;
+  --muted:        #64748b;
+  --grid-color:   rgba(0,212,255,0.03);
+  --nav-bg:       rgba(10,14,26,0.85);
+  --nav-border:   rgba(0,212,255,0.1);
+  --tag-engine-color:    #00d4ff;  --tag-engine-border:  rgba(0,212,255,0.3);    --tag-engine-bg:      rgba(0,212,255,0.06);   --tag-engine-hover:  rgba(0,212,255,0.15);   --tag-engine-glow:   rgba(0,212,255,0.2);
+  --tag-lang-color:      #a78bfa;  --tag-lang-border:    rgba(167,139,250,0.3);  --tag-lang-bg:        rgba(167,139,250,0.06); --tag-lang-hover:    rgba(167,139,250,0.15); --tag-lang-glow:     rgba(167,139,250,0.2);
+  --tag-backend-color:   #10b981;  --tag-backend-border: rgba(16,185,129,0.3);   --tag-backend-bg:     rgba(16,185,129,0.06);  --tag-backend-hover: rgba(16,185,129,0.15);  --tag-backend-glow:  rgba(16,185,129,0.2);
+  --tag-tool-color:      #f59e0b;  --tag-tool-border:    rgba(245,158,11,0.3);   --tag-tool-bg:        rgba(245,158,11,0.06);  --tag-tool-hover:    rgba(245,158,11,0.15);  --tag-tool-glow:     rgba(245,158,11,0.2);
+  --tag-mgmt-color:      #f472b6;  --tag-mgmt-border:    rgba(244,114,182,0.3);  --tag-mgmt-bg:        rgba(244,114,182,0.06); --tag-mgmt-hover:    rgba(244,114,182,0.15); --tag-mgmt-glow:     rgba(244,114,182,0.2);
+  --badge-platform-color: #10b981; --badge-platform-border: rgba(16,185,129,0.3);  --badge-platform-bg: rgba(16,185,129,0.06);
+  --badge-role-color:     #a78bfa; --badge-role-border:     rgba(167,139,250,0.3); --badge-role-bg:     rgba(167,139,250,0.06);
+  --badge-company-color:  #f59e0b; --badge-company-border:  rgba(245,158,11,0.3);  --badge-company-bg:  rgba(245,158,11,0.06);
+  --contact-phone-color:  #10b981; --contact-phone-border: rgba(16,185,129,0.5);  --contact-phone-bg: rgba(16,185,129,0.1);  --contact-phone-border-icon: rgba(16,185,129,0.2);
+  --contact-email-color:  #00d4ff; --contact-email-border: rgba(0,212,255,0.5);   --contact-email-bg: rgba(0,212,255,0.1);   --contact-email-border-icon: rgba(0,212,255,0.2);
+  --contact-li-color:     #a78bfa; --contact-li-border:    rgba(124,58,237,0.5);  --contact-li-bg:    rgba(124,58,237,0.1);  --contact-li-border-icon:    rgba(124,58,237,0.2);
 }
 
-/* ── EMBER (orange / red) ── */
+/* ── EMBER (orange/red) ── */
 [data-theme="ember"] {
-  --bg:          #0f0a08;
-  --card:        #1a1008;
-  --card-border: #3d1f0a;
-  --accent:      #ff6b2b;
-  --accent2:     #e11d48;
-  --accent3:     #f59e0b;
-  --text:        #f1e8e0;
-  --muted:       #7c5c48;
-  --grid-color:  rgba(255, 107, 43, 0.03);
-  --nav-bg:      rgba(15, 10, 8, 0.85);
-  --nav-border:  rgba(255, 107, 43, 0.1);
-  --glow:        rgba(255, 107, 43, 0.2);
+  --bg:           #0f0a08;
+  --card:         #1a1008;
+  --card-border:  #3d1f0a;
+  --accent:       #ff6b2b;
+  --accent2:      #e11d48;
+  --accent3:      #f59e0b;
+  --text:         #f1e8e0;
+  --muted:        #7c5c48;
+  --grid-color:   rgba(255,107,43,0.03);
+  --nav-bg:       rgba(15,10,8,0.85);
+  --nav-border:   rgba(255,107,43,0.1);
+  --tag-engine-color:    #ff6b2b;  --tag-engine-border:  rgba(255,107,43,0.3);   --tag-engine-bg:      rgba(255,107,43,0.06);  --tag-engine-hover:  rgba(255,107,43,0.15);  --tag-engine-glow:   rgba(255,107,43,0.2);
+  --tag-lang-color:      #fb923c;  --tag-lang-border:    rgba(251,146,60,0.3);   --tag-lang-bg:        rgba(251,146,60,0.06);  --tag-lang-hover:    rgba(251,146,60,0.15);  --tag-lang-glow:     rgba(251,146,60,0.2);
+  --tag-backend-color:   #f59e0b;  --tag-backend-border: rgba(245,158,11,0.3);   --tag-backend-bg:     rgba(245,158,11,0.06);  --tag-backend-hover: rgba(245,158,11,0.15);  --tag-backend-glow:  rgba(245,158,11,0.2);
+  --tag-tool-color:      #e11d48;  --tag-tool-border:    rgba(225,29,72,0.3);    --tag-tool-bg:        rgba(225,29,72,0.06);   --tag-tool-hover:    rgba(225,29,72,0.15);   --tag-tool-glow:     rgba(225,29,72,0.2);
+  --tag-mgmt-color:      #fbbf24;  --tag-mgmt-border:    rgba(251,191,36,0.3);   --tag-mgmt-bg:        rgba(251,191,36,0.06);  --tag-mgmt-hover:    rgba(251,191,36,0.15);  --tag-mgmt-glow:     rgba(251,191,36,0.2);
+  --badge-platform-color: #f59e0b; --badge-platform-border: rgba(245,158,11,0.3);  --badge-platform-bg: rgba(245,158,11,0.06);
+  --badge-role-color:     #fb923c; --badge-role-border:     rgba(251,146,60,0.3);  --badge-role-bg:     rgba(251,146,60,0.06);
+  --badge-company-color:  #ff6b2b; --badge-company-border:  rgba(255,107,43,0.3);  --badge-company-bg:  rgba(255,107,43,0.06);
+  --contact-phone-color:  #f59e0b; --contact-phone-border: rgba(245,158,11,0.5);  --contact-phone-bg: rgba(245,158,11,0.1);  --contact-phone-border-icon: rgba(245,158,11,0.2);
+  --contact-email-color:  #ff6b2b; --contact-email-border: rgba(255,107,43,0.5);  --contact-email-bg: rgba(255,107,43,0.1);  --contact-email-border-icon: rgba(255,107,43,0.2);
+  --contact-li-color:     #e11d48; --contact-li-border:    rgba(225,29,72,0.5);   --contact-li-bg:    rgba(225,29,72,0.1);   --contact-li-border-icon:    rgba(225,29,72,0.2);
 }
 
 /* ── FOREST (green) ── */
 [data-theme="forest"] {
-  --bg:          #050f0a;
-  --card:        #0a1a10;
-  --card-border: #0f3020;
-  --accent:      #00ff88;
-  --accent2:     #00b4d8;
-  --accent3:     #a3e635;
-  --text:        #e0f2e9;
-  --muted:       #4a7c5f;
-  --grid-color:  rgba(0, 255, 136, 0.03);
-  --nav-bg:      rgba(5, 15, 10, 0.85);
-  --nav-border:  rgba(0, 255, 136, 0.1);
-  --glow:        rgba(0, 255, 136, 0.2);
+  --bg:           #050f0a;
+  --card:         #0a1a10;
+  --card-border:  #0f3020;
+  --accent:       #00ff88;
+  --accent2:      #00b4d8;
+  --accent3:      #a3e635;
+  --text:         #e0f2e9;
+  --muted:        #4a7c5f;
+  --grid-color:   rgba(0,255,136,0.03);
+  --nav-bg:       rgba(5,15,10,0.85);
+  --nav-border:   rgba(0,255,136,0.1);
+  --tag-engine-color:    #00ff88;  --tag-engine-border:  rgba(0,255,136,0.3);   --tag-engine-bg:      rgba(0,255,136,0.06);  --tag-engine-hover:  rgba(0,255,136,0.15);  --tag-engine-glow:   rgba(0,255,136,0.2);
+  --tag-lang-color:      #00b4d8;  --tag-lang-border:    rgba(0,180,216,0.3);   --tag-lang-bg:        rgba(0,180,216,0.06);  --tag-lang-hover:    rgba(0,180,216,0.15);  --tag-lang-glow:     rgba(0,180,216,0.2);
+  --tag-backend-color:   #a3e635;  --tag-backend-border: rgba(163,230,53,0.3);  --tag-backend-bg:     rgba(163,230,53,0.06); --tag-backend-hover: rgba(163,230,53,0.15); --tag-backend-glow:  rgba(163,230,53,0.2);
+  --tag-tool-color:      #34d399;  --tag-tool-border:    rgba(52,211,153,0.3);  --tag-tool-bg:        rgba(52,211,153,0.06); --tag-tool-hover:    rgba(52,211,153,0.15); --tag-tool-glow:     rgba(52,211,153,0.2);
+  --tag-mgmt-color:      #6ee7b7;  --tag-mgmt-border:    rgba(110,231,183,0.3); --tag-mgmt-bg:        rgba(110,231,183,0.06);--tag-mgmt-hover:    rgba(110,231,183,0.15);--tag-mgmt-glow:     rgba(110,231,183,0.2);
+  --badge-platform-color: #a3e635; --badge-platform-border: rgba(163,230,53,0.3);  --badge-platform-bg: rgba(163,230,53,0.06);
+  --badge-role-color:     #00b4d8; --badge-role-border:     rgba(0,180,216,0.3);   --badge-role-bg:     rgba(0,180,216,0.06);
+  --badge-company-color:  #00ff88; --badge-company-border:  rgba(0,255,136,0.3);   --badge-company-bg:  rgba(0,255,136,0.06);
+  --contact-phone-color:  #a3e635; --contact-phone-border: rgba(163,230,53,0.5);  --contact-phone-bg: rgba(163,230,53,0.1);  --contact-phone-border-icon: rgba(163,230,53,0.2);
+  --contact-email-color:  #00ff88; --contact-email-border: rgba(0,255,136,0.5);   --contact-email-bg: rgba(0,255,136,0.1);   --contact-email-border-icon: rgba(0,255,136,0.2);
+  --contact-li-color:     #00b4d8; --contact-li-border:    rgba(0,180,216,0.5);   --contact-li-bg:    rgba(0,180,216,0.1);   --contact-li-border-icon:    rgba(0,180,216,0.2);
 }
 
-/* ── VOID (purple) ── */
+/* ── VOID (purple/pink) ── */
 [data-theme="void"] {
-  --bg:          #08050f;
-  --card:        #110a1f;
-  --card-border: #2a1550;
-  --accent:      #a855f7;
-  --accent2:     #ec4899;
-  --accent3:     #818cf8;
-  --text:        #ede9fe;
-  --muted:       #6b4f8a;
-  --grid-color:  rgba(168, 85, 247, 0.03);
-  --nav-bg:      rgba(8, 5, 15, 0.85);
-  --nav-border:  rgba(168, 85, 247, 0.1);
-  --glow:        rgba(168, 85, 247, 0.2);
+  --bg:           #08050f;
+  --card:         #110a1f;
+  --card-border:  #2a1550;
+  --accent:       #a855f7;
+  --accent2:      #ec4899;
+  --accent3:      #818cf8;
+  --text:         #ede9fe;
+  --muted:        #6b4f8a;
+  --grid-color:   rgba(168,85,247,0.03);
+  --nav-bg:       rgba(8,5,15,0.85);
+  --nav-border:   rgba(168,85,247,0.1);
+  --tag-engine-color:    #a855f7;  --tag-engine-border:  rgba(168,85,247,0.3);  --tag-engine-bg:      rgba(168,85,247,0.06); --tag-engine-hover:  rgba(168,85,247,0.15); --tag-engine-glow:   rgba(168,85,247,0.2);
+  --tag-lang-color:      #ec4899;  --tag-lang-border:    rgba(236,72,153,0.3);  --tag-lang-bg:        rgba(236,72,153,0.06); --tag-lang-hover:    rgba(236,72,153,0.15); --tag-lang-glow:     rgba(236,72,153,0.2);
+  --tag-backend-color:   #818cf8;  --tag-backend-border: rgba(129,140,248,0.3); --tag-backend-bg:     rgba(129,140,248,0.06);--tag-backend-hover: rgba(129,140,248,0.15);--tag-backend-glow:  rgba(129,140,248,0.2);
+  --tag-tool-color:      #c084fc;  --tag-tool-border:    rgba(192,132,252,0.3); --tag-tool-bg:        rgba(192,132,252,0.06);--tag-tool-hover:    rgba(192,132,252,0.15);--tag-tool-glow:     rgba(192,132,252,0.2);
+  --tag-mgmt-color:      #f0abfc;  --tag-mgmt-border:    rgba(240,171,252,0.3); --tag-mgmt-bg:        rgba(240,171,252,0.06);--tag-mgmt-hover:    rgba(240,171,252,0.15);--tag-mgmt-glow:     rgba(240,171,252,0.2);
+  --badge-platform-color: #818cf8; --badge-platform-border: rgba(129,140,248,0.3); --badge-platform-bg: rgba(129,140,248,0.06);
+  --badge-role-color:     #ec4899; --badge-role-border:     rgba(236,72,153,0.3);  --badge-role-bg:     rgba(236,72,153,0.06);
+  --badge-company-color:  #a855f7; --badge-company-border:  rgba(168,85,247,0.3);  --badge-company-bg:  rgba(168,85,247,0.06);
+  --contact-phone-color:  #818cf8; --contact-phone-border: rgba(129,140,248,0.5); --contact-phone-bg: rgba(129,140,248,0.1); --contact-phone-border-icon: rgba(129,140,248,0.2);
+  --contact-email-color:  #a855f7; --contact-email-border: rgba(168,85,247,0.5);  --contact-email-bg: rgba(168,85,247,0.1);  --contact-email-border-icon: rgba(168,85,247,0.2);
+  --contact-li-color:     #ec4899; --contact-li-border:    rgba(236,72,153,0.5);  --contact-li-bg:    rgba(236,72,153,0.1);  --contact-li-border-icon:    rgba(236,72,153,0.2);
 }
 
-/* ── AURORA (teal / pink) ── */
+/* ── AURORA (teal/pink) ── */
 [data-theme="aurora"] {
-  --bg:          #050d12;
-  --card:        #0a1520;
-  --card-border: #0f2535;
-  --accent:      #2dd4bf;
-  --accent2:     #f472b6;
-  --accent3:     #34d399;
-  --text:        #e0f7f4;
-  --muted:       #3d6e6a;
-  --grid-color:  rgba(45, 212, 191, 0.03);
-  --nav-bg:      rgba(5, 13, 18, 0.85);
-  --nav-border:  rgba(45, 212, 191, 0.1);
-  --glow:        rgba(45, 212, 191, 0.2);
+  --bg:           #050d12;
+  --card:         #0a1520;
+  --card-border:  #0f2535;
+  --accent:       #2dd4bf;
+  --accent2:      #f472b6;
+  --accent3:      #34d399;
+  --text:         #e0f7f4;
+  --muted:        #3d6e6a;
+  --grid-color:   rgba(45,212,191,0.03);
+  --nav-bg:       rgba(5,13,18,0.85);
+  --nav-border:   rgba(45,212,191,0.1);
+  --tag-engine-color:    #2dd4bf;  --tag-engine-border:  rgba(45,212,191,0.3);  --tag-engine-bg:      rgba(45,212,191,0.06); --tag-engine-hover:  rgba(45,212,191,0.15); --tag-engine-glow:   rgba(45,212,191,0.2);
+  --tag-lang-color:      #f472b6;  --tag-lang-border:    rgba(244,114,182,0.3); --tag-lang-bg:        rgba(244,114,182,0.06);--tag-lang-hover:    rgba(244,114,182,0.15);--tag-lang-glow:     rgba(244,114,182,0.2);
+  --tag-backend-color:   #34d399;  --tag-backend-border: rgba(52,211,153,0.3);  --tag-backend-bg:     rgba(52,211,153,0.06); --tag-backend-hover: rgba(52,211,153,0.15); --tag-backend-glow:  rgba(52,211,153,0.2);
+  --tag-tool-color:      #67e8f9;  --tag-tool-border:    rgba(103,232,249,0.3); --tag-tool-bg:        rgba(103,232,249,0.06);--tag-tool-hover:    rgba(103,232,249,0.15);--tag-tool-glow:     rgba(103,232,249,0.2);
+  --tag-mgmt-color:      #a78bfa;  --tag-mgmt-border:    rgba(167,139,250,0.3); --tag-mgmt-bg:        rgba(167,139,250,0.06);--tag-mgmt-hover:    rgba(167,139,250,0.15);--tag-mgmt-glow:     rgba(167,139,250,0.2);
+  --badge-platform-color: #34d399; --badge-platform-border: rgba(52,211,153,0.3);   --badge-platform-bg: rgba(52,211,153,0.06);
+  --badge-role-color:     #f472b6; --badge-role-border:     rgba(244,114,182,0.3);  --badge-role-bg:     rgba(244,114,182,0.06);
+  --badge-company-color:  #2dd4bf; --badge-company-border:  rgba(45,212,191,0.3);   --badge-company-bg:  rgba(45,212,191,0.06);
+  --contact-phone-color:  #34d399; --contact-phone-border: rgba(52,211,153,0.5);   --contact-phone-bg: rgba(52,211,153,0.1);   --contact-phone-border-icon: rgba(52,211,153,0.2);
+  --contact-email-color:  #2dd4bf; --contact-email-border: rgba(45,212,191,0.5);   --contact-email-bg: rgba(45,212,191,0.1);   --contact-email-border-icon: rgba(45,212,191,0.2);
+  --contact-li-color:     #f472b6; --contact-li-border:    rgba(244,114,182,0.5);  --contact-li-bg:    rgba(244,114,182,0.1);  --contact-li-border-icon:    rgba(244,114,182,0.2);
 }
 
-/* ============================================
-   SHARED BASE STYLES (used by all pages)
-   ============================================ */
+/* ============================================================
+   SHARED BASE STYLES
+   ============================================================ */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -99,7 +150,6 @@ body {
   line-height: 1.6;
 }
 
-/* Grid background */
 body::before {
   content: '';
   position: fixed;
@@ -112,7 +162,6 @@ body::before {
   z-index: 0;
 }
 
-/* NAVBAR */
 nav {
   display: flex;
   justify-content: center;
@@ -155,27 +204,6 @@ nav a::after {
 nav a:hover::after, nav a.active::after { width: 100%; }
 nav a:hover, nav a.active { color: var(--accent); }
 
-/* CONTAINER */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px 80px;
-  position: relative;
-  z-index: 1;
-}
-
-/* PAGE HEADER */
-.page-tag {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.page-tag::before { content: '> '; opacity: 0.5; }
-
-/* SECTION TITLE */
 .section-title {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.1rem;
@@ -203,13 +231,10 @@ nav a:hover, nav a.active { color: var(--accent); }
   background: linear-gradient(to right, var(--card-border), transparent);
 }
 
-/* CARD */
 .card {
   background: var(--card);
   border: 1px solid var(--card-border);
   border-radius: 12px;
-  padding: 28px;
-  margin-top: 24px;
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s;
@@ -225,17 +250,26 @@ nav a:hover, nav a.active { color: var(--accent); }
   transition: opacity 0.3s;
 }
 
-.card:hover { border-color: var(--glow); transform: translateY(-2px); }
 .card:hover::before { opacity: 1; }
 
-/* CORNER DECORATION */
 .card-corner {
   position: absolute;
   top: 12px; right: 12px;
   width: 20px; height: 20px;
-  border-top: 2px solid var(--glow);
-  border-right: 2px solid var(--glow);
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  opacity: 0.2;
 }
+
+.page-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.page-tag::before { content: '> '; opacity: 0.5; }
 
 /* SKILL TAGS */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -250,28 +284,105 @@ nav a:hover, nav a.active { color: var(--accent); }
   cursor: default;
 }
 
-.tag-engine  { color: var(--accent);  border-color: color-mix(in srgb, var(--accent) 30%, transparent);  background: color-mix(in srgb, var(--accent) 8%, transparent); }
-.tag-lang    { color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 30%, transparent); background: color-mix(in srgb, var(--accent2) 8%, transparent); }
-.tag-backend { color: var(--accent3); border-color: color-mix(in srgb, var(--accent3) 30%, transparent); background: color-mix(in srgb, var(--accent3) 8%, transparent); }
-.tag-tool    { color: var(--accent);  border-color: color-mix(in srgb, var(--accent) 20%, transparent);  background: color-mix(in srgb, var(--accent) 5%, transparent); }
-.tag-mgmt    { color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 20%, transparent); background: color-mix(in srgb, var(--accent2) 5%, transparent); }
+.tag-engine  { color: var(--tag-engine-color);  border-color: var(--tag-engine-border);  background: var(--tag-engine-bg); }
+.tag-lang    { color: var(--tag-lang-color);    border-color: var(--tag-lang-border);    background: var(--tag-lang-bg); }
+.tag-backend { color: var(--tag-backend-color); border-color: var(--tag-backend-border); background: var(--tag-backend-bg); }
+.tag-tool    { color: var(--tag-tool-color);    border-color: var(--tag-tool-border);    background: var(--tag-tool-bg); }
+.tag-mgmt    { color: var(--tag-mgmt-color);    border-color: var(--tag-mgmt-border);    background: var(--tag-mgmt-bg); }
 
-.tag:hover { transform: translateY(-1px); box-shadow: 0 4px 12px var(--glow); }
+.tag-engine:hover  { background: var(--tag-engine-hover);  box-shadow: 0 0 12px var(--tag-engine-glow); }
+.tag-lang:hover    { background: var(--tag-lang-hover);    box-shadow: 0 0 12px var(--tag-lang-glow); }
+.tag-backend:hover { background: var(--tag-backend-hover); box-shadow: 0 0 12px var(--tag-backend-glow); }
+.tag-tool:hover    { background: var(--tag-tool-hover);    box-shadow: 0 0 12px var(--tag-tool-glow); }
+.tag-mgmt:hover    { background: var(--tag-mgmt-hover);    box-shadow: 0 0 12px var(--tag-mgmt-glow); }
+
+/* PROJECT BADGES */
+.badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.badge-platform { color: var(--badge-platform-color); border-color: var(--badge-platform-border); background: var(--badge-platform-bg); }
+.badge-role     { color: var(--badge-role-color);     border-color: var(--badge-role-border);     background: var(--badge-role-bg); }
+.badge-company  { color: var(--badge-company-color);  border-color: var(--badge-company-border);  background: var(--badge-company-bg); }
+
+/* TECH TAGS (projects page) */
+.tech-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: var(--accent);
+  border: 1px solid var(--tag-engine-border);
+  background: var(--tag-engine-bg);
+}
+
+/* CONTACT ITEMS */
+.contact-item.phone   { border-left: 3px solid var(--contact-phone-border); }
+.contact-item.email   { border-left: 3px solid var(--contact-email-border); }
+.contact-item.linkedin { border-left: 3px solid var(--contact-li-border); }
+
+.contact-item.phone::before   { background: linear-gradient(to right, var(--contact-phone-color), transparent); }
+.contact-item.email::before   { background: linear-gradient(to right, var(--contact-email-color), transparent); }
+.contact-item.linkedin::before { background: linear-gradient(to right, var(--contact-li-color), transparent); }
+
+.contact-item.phone:hover   { border-color: var(--contact-phone-border); }
+.contact-item.email:hover   { border-color: var(--contact-email-border); }
+.contact-item.linkedin:hover { border-color: var(--contact-li-border); }
+
+.phone   .contact-icon { background: var(--contact-phone-bg);  border: 1px solid var(--contact-phone-border-icon); }
+.email   .contact-icon { background: var(--contact-email-bg);  border: 1px solid var(--contact-email-border-icon); }
+.linkedin .contact-icon { background: var(--contact-li-bg);    border: 1px solid var(--contact-li-border-icon); }
+
+.phone   .contact-label { color: var(--contact-phone-color); }
+.email   .contact-label { color: var(--contact-email-color); }
+.linkedin .contact-label { color: var(--contact-li-color); }
+
+.phone:hover   .contact-arrow { color: var(--contact-phone-color); }
+.email:hover   .contact-arrow { color: var(--contact-email-color); }
+.linkedin:hover .contact-arrow { color: var(--contact-li-color); }
+
+/* RESUME BUTTON */
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 11px 24px;
+  background: transparent;
+  border: 1px solid var(--tag-engine-border);
+  color: var(--accent);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 1s;
+}
+.btn-resume:hover {
+  background: var(--tag-engine-bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px var(--tag-engine-glow);
+}
+.btn-resume svg { width: 13px; height: 13px; flex-shrink: 0; }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 6px var(--accent3); }
   50%       { box-shadow: 0 0 16px var(--accent3); }
 }
 
-/* THEME SWITCHER UI */
+/* ── THEME SWITCHER UI ── */
 .theme-switcher {
   position: fixed;
   bottom: 24px;
@@ -296,10 +407,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   transition: all 0.2s;
 }
 
-.theme-toggle-btn:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 12px var(--glow);
-}
+.theme-toggle-btn:hover { border-color: var(--accent); }
 
 .theme-options {
   display: none;
@@ -332,11 +440,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .theme-btn:hover { border-color: var(--card-border); color: var(--text); }
 .theme-btn.active { color: var(--accent); border-color: var(--card-border); }
 
-.theme-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.theme-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
 @media (max-width: 600px) {
   .theme-switcher { bottom: 16px; right: 16px; }

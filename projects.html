@@ -6,60 +6,248 @@
   <title>Mayur Rathod | Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
+
   <style>
-    .container { max-width: 1200px; }
 
-    .page-header { margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
-    .page-header h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
-    .page-header h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    nav ul { display: flex; gap: 30px; list-style: none; padding: 0; margin: 0; }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 4px;
+      font-family: 'Share Tech Mono', monospace;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -6px;
+      width: 0%; height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover, nav a.active { color: var(--accent); }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 50px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .page-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .page-tag::before { content: '> '; opacity: 0.5; }
+
+    .page-header h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+    }
+
+    .page-header h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
 
     .card {
-      padding: 0; margin-top: 0; opacity: 0; animation: fadeUp 0.5s ease forwards;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+      position: relative;
     }
-    .card:nth-child(1)  { animation-delay: 0.10s; } .card:nth-child(2)  { animation-delay: 0.15s; }
-    .card:nth-child(3)  { animation-delay: 0.20s; } .card:nth-child(4)  { animation-delay: 0.25s; }
-    .card:nth-child(5)  { animation-delay: 0.30s; } .card:nth-child(6)  { animation-delay: 0.35s; }
-    .card:nth-child(7)  { animation-delay: 0.40s; } .card:nth-child(8)  { animation-delay: 0.45s; }
-    .card:nth-child(9)  { animation-delay: 0.50s; } .card:nth-child(10) { animation-delay: 0.55s; }
-    .card:nth-child(11) { animation-delay: 0.60s; } .card:nth-child(12) { animation-delay: 0.65s; }
-    .card:nth-child(13) { animation-delay: 0.70s; }
 
-    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; filter: brightness(0.85); transition: filter 0.3s; }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+    }
+
+    .card:hover { border-color: rgba(0,212,255,0.35); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,212,255,0.05); }
+    .card:hover::before { opacity: 1; }
+
+    .card:nth-child(1)  { animation-delay: 0.1s; }
+    .card:nth-child(2)  { animation-delay: 0.15s; }
+    .card:nth-child(3)  { animation-delay: 0.2s; }
+    .card:nth-child(4)  { animation-delay: 0.25s; }
+    .card:nth-child(5)  { animation-delay: 0.3s; }
+    .card:nth-child(6)  { animation-delay: 0.35s; }
+    .card:nth-child(7)  { animation-delay: 0.4s; }
+    .card:nth-child(8)  { animation-delay: 0.45s; }
+    .card:nth-child(9)  { animation-delay: 0.5s; }
+    .card:nth-child(10) { animation-delay: 0.55s; }
+    .card:nth-child(11) { animation-delay: 0.6s; }
+    .card:nth-child(12) { animation-delay: 0.65s; }
+    .card:nth-child(13) { animation-delay: 0.7s; }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+      transition: filter 0.3s;
+    }
+
     .card:hover .card-img { filter: brightness(1); }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
     .content { padding: 20px; }
-    .card-title { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+
+    .card-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
 
     .meta-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-    .badge { font-family: 'Share Tech Mono', monospace; font-size: 11px; padding: 3px 8px; border-radius: 4px; border: 1px solid; }
-    .badge-platform { color: var(--accent3); border-color: color-mix(in srgb, var(--accent3) 30%, transparent); background: color-mix(in srgb, var(--accent3) 6%, transparent); }
-    .badge-role     { color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 30%, transparent); background: color-mix(in srgb, var(--accent2) 6%, transparent); }
-    .badge-company  { color: var(--accent);  border-color: color-mix(in srgb, var(--accent) 20%, transparent);  background: color-mix(in srgb, var(--accent) 5%, transparent); }
+
+    .badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+
+    .badge-platform { color: #10b981; border-color: rgba(16,185,129,0.3);  background: rgba(16,185,129,0.06); }
+    .badge-role     { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.06); }
+    .badge-company  { color: #f59e0b; border-color: rgba(245,158,11,0.3);  background: rgba(245,158,11,0.06); }
 
     .tech-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-    .tech-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 3px; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent); background: color-mix(in srgb, var(--accent) 5%, transparent); }
 
-    .contribution { font-size: 12px; color: #94a3b8; border-top: 1px solid var(--card-border); padding-top: 12px; line-height: 1.6; }
-    .contribution strong { font-family: 'Share Tech Mono', monospace; color: var(--accent); font-size: 11px; letter-spacing: 0.05em; }
+    .tech-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+      background: rgba(0,212,255,0.05);
+    }
 
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .contribution {
+      font-size: 12px;
+      color: #94a3b8;
+      border-top: 1px solid var(--card-border);
+      padding-top: 12px;
+      line-height: 1.6;
+    }
+
+    .contribution strong {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
+
 <body>
 
 <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
 <div class="container">
+
   <div class="page-header">
     <div class="page-tag">Portfolio</div>
     <h1>My <span>Projects</span></h1>
@@ -67,31 +255,226 @@
 
   <div class="grid">
 
-    <div class="card"><img class="card-img" src="/images/projects/yoga-quest.webp" alt="Yoga Quest"><div class="content"><div class="card-title">Yoga Quest Relaxing Puzzle</div><div class="card-desc">Relaxation and meditation-based puzzle game set in the Himalayas.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Principal Engineer</span><span class="badge badge-company">LongbowGames</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">Node.js</span><span class="tech-tag">C#</span></div><div class="contribution"><strong>// Contributions</strong><br>System architecture, performance tuning, gameplay systems.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/yoga-quest.webp" alt="Yoga Quest">
+      <div class="content">
+        <div class="card-title">Yoga Quest Relaxing Puzzle</div>
+        <div class="card-desc">Relaxation and meditation-based puzzle game set in the Himalayas.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Principal Engineer</span>
+          <span class="badge badge-company">LongbowGames</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">Node.js</span><span class="tech-tag">C#</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>System architecture, performance tuning, gameplay systems.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/battle-bay.png" alt="Battle Bay"><div class="content"><div class="card-title">Battle Bay</div><div class="card-desc">Multiplayer naval combat game with real-time team battles.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Principal Engineer</span><span class="badge badge-company">LongbowGames</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">Protobuf</span><span class="tech-tag">C#</span><span class="tech-tag">C++</span></div><div class="contribution"><strong>// Contributions</strong><br>Multiplayer systems, optimization, architecture.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/battle-bay.png" alt="Battle Bay">
+      <div class="content">
+        <div class="card-title">Battle Bay</div>
+        <div class="card-desc">Multiplayer naval combat game with real-time team battles.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Principal Engineer</span>
+          <span class="badge badge-company">LongbowGames</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">Protobuf</span><span class="tech-tag">C#</span><span class="tech-tag">C++</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Multiplayer systems, optimization, architecture.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/mine-rescue.webp" alt="Mine Rescue"><div class="content"><div class="card-title">Mine Rescue</div><div class="card-desc">Mining simulation game focused on exploration and resource collection.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Lead Engineer</span><span class="badge badge-company">LongbowGames</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span></div><div class="contribution"><strong>// Contributions</strong><br>Core gameplay systems, backend integration.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/mine-rescue.webp" alt="Mine Rescue">
+      <div class="content">
+        <div class="card-title">Mine Rescue</div>
+        <div class="card-desc">Mining simulation game focused on exploration and resource collection.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Lead Engineer</span>
+          <span class="badge badge-company">LongbowGames</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Core gameplay systems, backend integration.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/almost-a-hero.webp" alt="Almost a Hero"><div class="content"><div class="card-title">Almost a Hero</div><div class="card-desc">Idle RPG adventure game with humorous characters.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Lead Engineer</span><span class="badge badge-company">LongbowGames</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">Playfab</span></div><div class="contribution"><strong>// Contributions</strong><br>Live ops systems, optimization, feature delivery.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/almost-a-hero.webp" alt="Almost a Hero">
+      <div class="content">
+        <div class="card-title">Almost a Hero</div>
+        <div class="card-desc">Idle RPG adventure game with humorous characters.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Lead Engineer</span>
+          <span class="badge badge-company">LongbowGames</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">Playfab</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Live ops systems, optimization, feature delivery.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/sachin-saga.webp" alt="Sachin Saga"><div class="content"><div class="card-title">Sachin Saga Cricket Champions</div><div class="card-desc">3D cricket game with advanced AI and multiplayer features.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Senior Programmer</span><span class="badge badge-company">JetSynthesys</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">Playblazer</span></div><div class="contribution"><strong>// Contributions</strong><br>AI systems, gameplay logic, performance tuning.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/sachin-saga.webp" alt="Sachin Saga">
+      <div class="content">
+        <div class="card-title">Sachin Saga Cricket Champions</div>
+        <div class="card-desc">3D cricket game with advanced AI and multiplayer features.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Senior Programmer</span>
+          <span class="badge badge-company">JetSynthesys</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">Playblazer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>AI systems, gameplay logic, performance tuning.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/airlift.png" alt="Airlift"><div class="content"><div class="card-title">Airlift</div><div class="card-desc">Air combat rescue game with progressive upgrades and missions.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">HungamaGameShastra</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">C#</span></div><div class="contribution"><strong>// Contributions</strong><br>Gameplay features, mechanics implementation.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/airlift.png" alt="Airlift">
+      <div class="content">
+        <div class="card-title">Airlift</div>
+        <div class="card-desc">Air combat rescue game with progressive upgrades and missions.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">HungamaGameShastra</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">C#</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Gameplay features, mechanics implementation.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/flying-jatt.png" alt="Flying Jatt"><div class="content"><div class="card-title">Flying Jatt</div><div class="card-desc">Endless runner featuring Bollywood action gameplay.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">HungamaGameShastra</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">C#</span></div><div class="contribution"><strong>// Contributions</strong><br>Core gameplay loop, mechanics implementation.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/flying-jatt.png" alt="Flying Jatt">
+      <div class="content">
+        <div class="card-title">Flying Jatt</div>
+        <div class="card-desc">Endless runner featuring Bollywood action gameplay.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">HungamaGameShastra</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">C#</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Core gameplay loop, mechanics implementation.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/kirssh-3.jpg" alt="Krrish 3"><div class="content"><div class="card-title">Krrish 3: The Game</div><div class="card-desc">Superhero action game with combat mechanics.</div><div class="meta-row"><span class="badge badge-platform">Android / iOS / PC</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">HungamaGameShastra</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span></div><div class="contribution"><strong>// Contributions</strong><br>Combat systems, gameplay implementation.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/kirssh-3.jpg" alt="Krrish 3">
+      <div class="content">
+        <div class="card-title">Krrish 3: The Game</div>
+        <div class="card-desc">Superhero action game with combat mechanics.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Android / iOS / PC</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">HungamaGameShastra</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Combat systems, gameplay implementation.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/virtual-patient-management.jpg" alt="Virtual Patient Management"><div class="content"><div class="card-title">Virtual Patient Management</div><div class="card-desc">Healthcare simulation training system.</div><div class="meta-row"><span class="badge badge-platform">Web / PC</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">Indusgeeks</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span></div><div class="contribution"><strong>// Contributions</strong><br>Simulation systems, UI workflows.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/virtual-patient-management.jpg" alt="Virtual Patient Management">
+      <div class="content">
+        <div class="card-title">Virtual Patient Management</div>
+        <div class="card-desc">Healthcare simulation training system.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Web / PC</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">Indusgeeks</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Simulation systems, UI workflows.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/nurse-training.jpg" alt="Nurse Training"><div class="content"><div class="card-title">Nurse Training</div><div class="card-desc">Gamified healthcare training solution.</div><div class="meta-row"><span class="badge badge-platform">Web</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">Indusgeeks</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span></div><div class="contribution"><strong>// Contributions</strong><br>Training modules, system logic.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/nurse-training.jpg" alt="Nurse Training">
+      <div class="content">
+        <div class="card-title">Nurse Training</div>
+        <div class="card-desc">Gamified healthcare training solution.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Web</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">Indusgeeks</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Training modules, system logic.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/mass-casualty-scenario.jpg" alt="Mass Casualty Scenario"><div class="content"><div class="card-title">Mass Casualty Scenario</div><div class="card-desc">Disaster response training simulation.</div><div class="meta-row"><span class="badge badge-platform">Web</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">Indusgeeks</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span></div><div class="contribution"><strong>// Contributions</strong><br>Scenario systems, interaction flows.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/mass-casualty-scenario.jpg" alt="Mass Casualty Scenario">
+      <div class="content">
+        <div class="card-title">Mass Casualty Scenario</div>
+        <div class="card-desc">Disaster response training simulation.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Web</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">Indusgeeks</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Scenario systems, interaction flows.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/dialysis-management.jpg" alt="Dialysis Management"><div class="content"><div class="card-title">Dialysis Management</div><div class="card-desc">Medical training simulation system.</div><div class="meta-row"><span class="badge badge-platform">Web / PC</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">Indusgeeks</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span></div><div class="contribution"><strong>// Contributions</strong><br>Simulation logic, system workflows.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/dialysis-management.jpg" alt="Dialysis Management">
+      <div class="content">
+        <div class="card-title">Dialysis Management</div>
+        <div class="card-desc">Medical training simulation system.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Web / PC</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">Indusgeeks</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span><span class="tech-tag">SmartfoxServer</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Simulation logic, system workflows.</div>
+      </div>
+    </div>
 
-    <div class="card"><img class="card-img" src="/images/projects/grand-master-influence.jpg" alt="Grandmasters of Influence"><div class="content"><div class="card-title">Grandmasters of Influence</div><div class="card-desc">Leadership training simulation for enterprise.</div><div class="meta-row"><span class="badge badge-platform">Windows / Mac</span><span class="badge badge-role">Game Developer</span><span class="badge badge-company">Indusgeeks</span></div><div class="tech-row"><span class="tech-tag">Unity3D</span></div><div class="contribution"><strong>// Contributions</strong><br>Core systems, interaction design.</div></div></div>
+    <div class="card">
+      <img class="card-img" src="/images/projects/grand-master-influence.jpg" alt="Grandmasters of Influence">
+      <div class="content">
+        <div class="card-title">Grandmasters of Influence</div>
+        <div class="card-desc">Leadership training simulation for enterprise.</div>
+        <div class="meta-row">
+          <span class="badge badge-platform">Windows / Mac</span>
+          <span class="badge badge-role">Game Developer</span>
+          <span class="badge badge-company">Indusgeeks</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-tag">Unity3D</span>
+        </div>
+        <div class="contribution"><strong>▸ What I Built</strong><br>Core systems, interaction design.</div>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -106,7 +489,5 @@
   </div>
   <button class="theme-toggle-btn" id="themeToggle">⬡ THEME</button>
 </div>
-
-<script src="theme.js"></script>
 </body>
 </html>
