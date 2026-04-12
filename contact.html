@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact - Mayur Rathod</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mayur Rathod | Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:#0f172a;
-      --card:#1e293b;
-      --accent:#38bdf8;
-      --text:#e2e8f0;
-      --muted:#94a3b8;
+      --bg: #0a0e1a;
+      --card: #111827;
+      --card-border: #1e2d45;
+      --accent: #00d4ff;
+      --accent2: #7c3aed;
+      --accent3: #10b981;
+      --text: #e2e8f0;
+      --muted: #64748b;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
+      font-family: 'Exo 2', sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    /* ✅ UNIFIED NAVBAR */
     nav {
       display: flex;
       justify-content: center;
@@ -34,75 +48,233 @@
       position: sticky;
       top: 0;
       z-index: 100;
-
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     }
 
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+    nav ul { display: flex; gap: 30px; list-style: none; padding: 0; margin: 0; }
 
     nav a {
       position: relative;
       text-decoration: none;
       color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       padding: 6px 4px;
+      font-family: 'Share Tech Mono', monospace;
       transition: color 0.3s ease;
     }
 
-    /* Hover underline animation */
     nav a::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0%;
-      height: 2px;
+      left: 0; bottom: -6px;
+      width: 0%; height: 2px;
       background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
       transition: width 0.3s ease;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover, nav a.active { color: var(--accent); }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 50px 20px 80px;
+      position: relative;
+      z-index: 1;
     }
 
-    nav a:hover {
-      color: var(--text);
+    /* PAGE HEADER */
+    .page-header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
     }
 
-    /* Active tab */
-    nav a.active {
-      color: var(--text);
-    }
-
-    nav a.active::after {
-      width: 100%;
-    }
-
-    h1 {
-      margin-top: 40px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    .card a {
+    .page-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
       color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .page-tag::before { content: '> '; opacity: 0.5; }
+
+    .page-header h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+    }
+
+    .page-header h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* CONTACT CARDS */
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
       text-decoration: none;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .contact-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .contact-item:hover::before { opacity: 1; }
+
+    /* Individual accent colors */
+    .contact-item.phone  { border-left: 3px solid rgba(16,185,129,0.5); }
+    .contact-item.email  { border-left: 3px solid rgba(0,212,255,0.5); }
+    .contact-item.linkedin { border-left: 3px solid rgba(124,58,237,0.5); }
+
+    .contact-item.phone::before  { background: linear-gradient(to right, #10b981, transparent); }
+    .contact-item.email::before  { background: linear-gradient(to right, var(--accent), transparent); }
+    .contact-item.linkedin::before { background: linear-gradient(to right, var(--accent2), transparent); }
+
+    .contact-item.phone:hover  { border-color: rgba(16,185,129,0.5); }
+    .contact-item.email:hover  { border-color: rgba(0,212,255,0.5); }
+    .contact-item.linkedin:hover { border-color: rgba(124,58,237,0.5); }
+
+    .contact-item:nth-child(1) { animation-delay: 0.3s; }
+    .contact-item:nth-child(2) { animation-delay: 0.45s; }
+    .contact-item:nth-child(3) { animation-delay: 0.6s; }
+
+    /* ICON */
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .phone  .contact-icon { background: rgba(16,185,129,0.1);  border: 1px solid rgba(16,185,129,0.2); }
+    .email  .contact-icon { background: rgba(0,212,255,0.1);   border: 1px solid rgba(0,212,255,0.2); }
+    .linkedin .contact-icon { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2); }
+
+    .contact-info { flex: 1; }
+
+    .contact-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+
+    .phone   .contact-label { color: #10b981; }
+    .email   .contact-label { color: var(--accent); }
+    .linkedin .contact-label { color: #a78bfa; }
+
+    .contact-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-arrow {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 18px;
+      color: var(--muted);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .contact-item:hover .contact-arrow {
+      transform: translateX(4px);
+    }
+
+    .phone:hover   .contact-arrow { color: #10b981; }
+    .email:hover   .contact-arrow { color: var(--accent); }
+    .linkedin:hover .contact-arrow { color: #a78bfa; }
+
+    /* STATUS CARD */
+    .status-card {
+      margin-top: 32px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.75s;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent3);
+      box-shadow: 0 0 10px var(--accent3);
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 6px var(--accent3); }
+      50%       { box-shadow: 0 0 16px var(--accent3); }
+    }
+
+    .status-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      color: var(--accent3);
+    }
+
+    .status-text span { color: var(--muted); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -119,17 +291,47 @@
 
 <div class="container">
 
-<h1>Contact</h1>
+  <div class="page-header">
+    <div class="page-tag">Get In Touch</div>
+    <h1>Contact <span>Me</span></h1>
+    <p>Open to new opportunities, collaborations, or just a good conversation about game development.</p>
+  </div>
 
-<div class="card">
-  <p><b>Phone:</b> +91 9833561646</p>
-  <p><b>Email:</b> mayur1689@yahoo.com</p>
-  <p><b>LinkedIn:</b> 
-    <a href="https://www.linkedin.com/in/mrathodgamedev/">
-      linkedin.com/in/mrathodgamedev
+  <div class="contact-grid">
+
+    <div class="contact-item phone">
+      <div class="contact-icon">📱</div>
+      <div class="contact-info">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+91 9833561646</div>
+      </div>
+      <div class="contact-arrow">→</div>
+    </div>
+
+    <a class="contact-item email" href="mailto:mayur1689@yahoo.com">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-info">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">mayur1689@yahoo.com</div>
+      </div>
+      <div class="contact-arrow">→</div>
     </a>
-  </p>
-</div>
+
+    <a class="contact-item linkedin" href="https://www.linkedin.com/in/mrathodgamedev/" target="_blank">
+      <div class="contact-icon">💼</div>
+      <div class="contact-info">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/mrathodgamedev</div>
+      </div>
+      <div class="contact-arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="status-card">
+    <div class="status-dot"></div>
+    <div class="status-text">Available for opportunities <span>· Mumbai, India</span></div>
+  </div>
 
 </div>
 
