@@ -11,14 +11,14 @@
    FONT OPTIONS — parsed by theme.js for the font switcher
    Each block defines one font combo available in the previewer
    Format (all fields required):
-     @font-option-start
+     @font-option-format
      id:      unique key used in localStorage
      name:    label shown in the switcher
      import:  full Google Fonts URL
      body:    --font-body value
      display: --font-display value
      mono:    --font-mono value
-     @font-option-end
+     @font-option-format-end
    ============================================================ */
 
 /* @font-option-start
