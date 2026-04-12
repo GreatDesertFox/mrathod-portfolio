@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cyber">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mayur Rathod | Principal Game Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
 
   <style>
-    :root {
-      --bg: #0a0e1a;
-      --bg2: #0f172a;
-      --card: #111827;
-      --card-border: #1e2d45;
-      --accent: #00d4ff;
-      --accent2: #7c3aed;
-      --accent3: #10b981;
-      --text: #e2e8f0;
-      --muted: #64748b;
-    }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -600,5 +591,15 @@
   type();
 </script>
 
+<div class="theme-switcher">
+  <div class="theme-options" id="themeOptions">
+    <button class="theme-btn" data-theme="cyber"><span class="theme-dot" style="background:#00d4ff"></span>Cyber</button>
+    <button class="theme-btn" data-theme="ember"><span class="theme-dot" style="background:#ff6b2b"></span>Ember</button>
+    <button class="theme-btn" data-theme="forest"><span class="theme-dot" style="background:#00ff88"></span>Forest</button>
+    <button class="theme-btn" data-theme="void"><span class="theme-dot" style="background:#a855f7"></span>Void</button>
+    <button class="theme-btn" data-theme="aurora"><span class="theme-dot" style="background:#2dd4bf"></span>Aurora</button>
+  </div>
+  <button class="theme-toggle-btn" id="themeToggle">⬡ THEME</button>
+</div>
 </body>
 </html>
