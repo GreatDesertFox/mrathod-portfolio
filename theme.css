@@ -445,3 +445,76 @@ nav a:hover, nav a.active { color: var(--accent); }
 @media (max-width: 600px) {
   .theme-switcher { bottom: 16px; right: 16px; }
 }
+
+/* ── FONT SWITCHER UI ── */
+.font-switcher {
+  position: fixed;
+  bottom: 24px;
+  right: 130px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.font-toggle-btn {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.font-toggle-btn:hover { border-color: var(--accent); }
+
+.font-options {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.font-options.open { display: flex; }
+
+.font-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.font-btn:hover { border-color: var(--card-border); color: var(--text); }
+.font-btn.active { color: var(--accent); border-color: var(--card-border); }
+
+.font-btn-name {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.font-btn-preview {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .font-switcher { bottom: 16px; right: 110px; }
+}

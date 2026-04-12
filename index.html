@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mayur Rathod | Principal Game Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="theme.css">
-  <script src="theme.js"></script>
+  <script>
+    (function(){
+      var t=localStorage.getItem('portfolio-theme')||'cyber';
+      document.documentElement.setAttribute('data-theme',t);
+    })();
+  </script>
 
   <style>
 
@@ -591,6 +597,33 @@
   type();
 </script>
 
+
+<!-- FONT SWITCHER -->
+<div class="font-switcher">
+  <div class="font-options" id="fontOptions">
+    <button class="font-btn" data-font="scifi">
+      <span class="font-btn-name">Sci-Fi / Techy</span>
+      <span class="font-btn-preview" style="font-family:'Rajdhani',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="modern">
+      <span class="font-btn-name">Clean / Modern</span>
+      <span class="font-btn-preview" style="font-family:'Syne',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="bold">
+      <span class="font-btn-name">Bold / Editorial</span>
+      <span class="font-btn-preview" style="font-family:'Bebas Neue',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="elegant">
+      <span class="font-btn-name">Elegant / Minimal</span>
+      <span class="font-btn-preview" style="font-family:'Cormorant Garamond',serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="gamedev">
+      <span class="font-btn-name">Game Dev Pro</span>
+      <span class="font-btn-preview" style="font-family:'Oxanium',sans-serif">Mayur Rathod</span>
+    </button>
+  </div>
+  <button class="font-toggle-btn" id="fontToggle">⬡ FONT</button>
+</div>
 <div class="theme-switcher">
   <div class="theme-options" id="themeOptions">
     <button class="theme-btn" data-theme="cyber"><span class="theme-dot" style="background:#00d4ff"></span>Cyber</button>
@@ -601,5 +634,6 @@
   </div>
   <button class="theme-toggle-btn" id="themeToggle">⬡ THEME</button>
 </div>
+<script src="theme.js"></script>
 </body>
 </html>
