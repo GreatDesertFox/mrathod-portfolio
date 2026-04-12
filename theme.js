@@ -7,6 +7,14 @@
 // Step 2: wire up UI after DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Hide theme switcher on production — only show on localhost / staging
+  var host = window.location.hostname;
+  var isLocal = host === 'localhost' || host === '127.0.0.1' || host.includes('github.io');
+  if (!isLocal) {
+    var switcher = document.querySelector('.theme-switcher');
+    if (switcher) switcher.style.display = 'none';
+  }
+
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
