@@ -136,6 +136,136 @@
   --contact-li-color:     #f472b6; --contact-li-border:    rgba(244,114,182,0.5);  --contact-li-bg:    rgba(244,114,182,0.1);  --contact-li-border-icon:    rgba(244,114,182,0.2);
 }
 
+
+/* ── NEON TOKYO (hot pink / cyan / yellow) ── */
+[data-theme="tokyo"] {
+  --bg:           #0d0d1a;
+  --card:         #13131f;
+  --card-border:  #2a1535;
+  --accent:       #ff2d78;
+  --accent2:      #00f5ff;
+  --accent3:      #ffe600;
+  --text:         #f0e6ff;
+  --muted:        #6b5b7b;
+  --grid-color:   rgba(255,45,120,0.03);
+  --nav-bg:       rgba(13,13,26,0.85);
+  --nav-border:   rgba(255,45,120,0.1);
+  --tag-engine-color:    #ff2d78;  --tag-engine-border:  rgba(255,45,120,0.3);   --tag-engine-bg:      rgba(255,45,120,0.06);  --tag-engine-hover:  rgba(255,45,120,0.15);  --tag-engine-glow:   rgba(255,45,120,0.2);
+  --tag-lang-color:      #00f5ff;  --tag-lang-border:    rgba(0,245,255,0.3);    --tag-lang-bg:        rgba(0,245,255,0.06);   --tag-lang-hover:    rgba(0,245,255,0.15);   --tag-lang-glow:     rgba(0,245,255,0.2);
+  --tag-backend-color:   #ffe600;  --tag-backend-border: rgba(255,230,0,0.3);    --tag-backend-bg:     rgba(255,230,0,0.06);   --tag-backend-hover: rgba(255,230,0,0.15);   --tag-backend-glow:  rgba(255,230,0,0.2);
+  --tag-tool-color:      #ff2d78;  --tag-tool-border:    rgba(255,45,120,0.25);  --tag-tool-bg:        rgba(255,45,120,0.05);  --tag-tool-hover:    rgba(255,45,120,0.12);  --tag-tool-glow:     rgba(255,45,120,0.2);
+  --tag-mgmt-color:      #ffe600;  --tag-mgmt-border:    rgba(255,230,0,0.25);   --tag-mgmt-bg:        rgba(255,230,0,0.05);   --tag-mgmt-hover:    rgba(255,230,0,0.12);   --tag-mgmt-glow:     rgba(255,230,0,0.2);
+  --badge-platform-color: #ffe600; --badge-platform-border: rgba(255,230,0,0.3);   --badge-platform-bg: rgba(255,230,0,0.06);
+  --badge-role-color:     #00f5ff; --badge-role-border:     rgba(0,245,255,0.3);   --badge-role-bg:     rgba(0,245,255,0.06);
+  --badge-company-color:  #ff2d78; --badge-company-border:  rgba(255,45,120,0.3);  --badge-company-bg:  rgba(255,45,120,0.06);
+  --contact-phone-color:  #ffe600; --contact-phone-border: rgba(255,230,0,0.5);   --contact-phone-bg: rgba(255,230,0,0.1);   --contact-phone-border-icon: rgba(255,230,0,0.2);
+  --contact-email-color:  #ff2d78; --contact-email-border: rgba(255,45,120,0.5);  --contact-email-bg: rgba(255,45,120,0.1);  --contact-email-border-icon: rgba(255,45,120,0.2);
+  --contact-li-color:     #00f5ff; --contact-li-border:    rgba(0,245,255,0.5);   --contact-li-bg:    rgba(0,245,255,0.1);   --contact-li-border-icon:    rgba(0,245,255,0.2);
+}
+
+/* ── SLATE (indigo / sky / emerald) ── */
+[data-theme="slate"] {
+  --bg:           #0f1117;
+  --card:         #1a1d27;
+  --card-border:  #252836;
+  --accent:       #6366f1;
+  --accent2:      #38bdf8;
+  --accent3:      #34d399;
+  --text:         #e2e8f0;
+  --muted:        #64748b;
+  --grid-color:   rgba(99,102,241,0.03);
+  --nav-bg:       rgba(15,17,23,0.85);
+  --nav-border:   rgba(99,102,241,0.1);
+  --tag-engine-color:    #6366f1;  --tag-engine-border:  rgba(99,102,241,0.3);   --tag-engine-bg:      rgba(99,102,241,0.06);  --tag-engine-hover:  rgba(99,102,241,0.15);  --tag-engine-glow:   rgba(99,102,241,0.2);
+  --tag-lang-color:      #38bdf8;  --tag-lang-border:    rgba(56,189,248,0.3);   --tag-lang-bg:        rgba(56,189,248,0.06);  --tag-lang-hover:    rgba(56,189,248,0.15);  --tag-lang-glow:     rgba(56,189,248,0.2);
+  --tag-backend-color:   #34d399;  --tag-backend-border: rgba(52,211,153,0.3);   --tag-backend-bg:     rgba(52,211,153,0.06);  --tag-backend-hover: rgba(52,211,153,0.15);  --tag-backend-glow:  rgba(52,211,153,0.2);
+  --tag-tool-color:      #6366f1;  --tag-tool-border:    rgba(99,102,241,0.25);  --tag-tool-bg:        rgba(99,102,241,0.05);  --tag-tool-hover:    rgba(99,102,241,0.12);  --tag-tool-glow:     rgba(99,102,241,0.2);
+  --tag-mgmt-color:      #34d399;  --tag-mgmt-border:    rgba(52,211,153,0.25);  --tag-mgmt-bg:        rgba(52,211,153,0.05);  --tag-mgmt-hover:    rgba(52,211,153,0.12);  --tag-mgmt-glow:     rgba(52,211,153,0.2);
+  --badge-platform-color: #34d399; --badge-platform-border: rgba(52,211,153,0.3);  --badge-platform-bg: rgba(52,211,153,0.06);
+  --badge-role-color:     #38bdf8; --badge-role-border:     rgba(56,189,248,0.3);  --badge-role-bg:     rgba(56,189,248,0.06);
+  --badge-company-color:  #6366f1; --badge-company-border:  rgba(99,102,241,0.3);  --badge-company-bg:  rgba(99,102,241,0.06);
+  --contact-phone-color:  #34d399; --contact-phone-border: rgba(52,211,153,0.5);  --contact-phone-bg: rgba(52,211,153,0.1);  --contact-phone-border-icon: rgba(52,211,153,0.2);
+  --contact-email-color:  #6366f1; --contact-email-border: rgba(99,102,241,0.5);  --contact-email-bg: rgba(99,102,241,0.1);  --contact-email-border-icon: rgba(99,102,241,0.2);
+  --contact-li-color:     #38bdf8; --contact-li-border:    rgba(56,189,248,0.5);  --contact-li-bg:    rgba(56,189,248,0.1);  --contact-li-border-icon:    rgba(56,189,248,0.2);
+}
+
+/* ── GOLD (amber / red / teal) ── */
+[data-theme="gold"] {
+  --bg:           #0c0a00;
+  --card:         #171200;
+  --card-border:  #332800;
+  --accent:       #f5a623;
+  --accent2:      #e8453c;
+  --accent3:      #00d4b1;
+  --text:         #fef9e7;
+  --muted:        #7a6a3a;
+  --grid-color:   rgba(245,166,35,0.03);
+  --nav-bg:       rgba(12,10,0,0.85);
+  --nav-border:   rgba(245,166,35,0.1);
+  --tag-engine-color:    #f5a623;  --tag-engine-border:  rgba(245,166,35,0.3);   --tag-engine-bg:      rgba(245,166,35,0.06);  --tag-engine-hover:  rgba(245,166,35,0.15);  --tag-engine-glow:   rgba(245,166,35,0.2);
+  --tag-lang-color:      #e8453c;  --tag-lang-border:    rgba(232,69,60,0.3);    --tag-lang-bg:        rgba(232,69,60,0.06);   --tag-lang-hover:    rgba(232,69,60,0.15);   --tag-lang-glow:     rgba(232,69,60,0.2);
+  --tag-backend-color:   #00d4b1;  --tag-backend-border: rgba(0,212,177,0.3);    --tag-backend-bg:     rgba(0,212,177,0.06);   --tag-backend-hover: rgba(0,212,177,0.15);   --tag-backend-glow:  rgba(0,212,177,0.2);
+  --tag-tool-color:      #f5a623;  --tag-tool-border:    rgba(245,166,35,0.25);  --tag-tool-bg:        rgba(245,166,35,0.05);  --tag-tool-hover:    rgba(245,166,35,0.12);  --tag-tool-glow:     rgba(245,166,35,0.2);
+  --tag-mgmt-color:      #00d4b1;  --tag-mgmt-border:    rgba(0,212,177,0.25);   --tag-mgmt-bg:        rgba(0,212,177,0.05);   --tag-mgmt-hover:    rgba(0,212,177,0.12);   --tag-mgmt-glow:     rgba(0,212,177,0.2);
+  --badge-platform-color: #00d4b1; --badge-platform-border: rgba(0,212,177,0.3);   --badge-platform-bg: rgba(0,212,177,0.06);
+  --badge-role-color:     #e8453c; --badge-role-border:     rgba(232,69,60,0.3);   --badge-role-bg:     rgba(232,69,60,0.06);
+  --badge-company-color:  #f5a623; --badge-company-border:  rgba(245,166,35,0.3);  --badge-company-bg:  rgba(245,166,35,0.06);
+  --contact-phone-color:  #00d4b1; --contact-phone-border: rgba(0,212,177,0.5);   --contact-phone-bg: rgba(0,212,177,0.1);   --contact-phone-border-icon: rgba(0,212,177,0.2);
+  --contact-email-color:  #f5a623; --contact-email-border: rgba(245,166,35,0.5);  --contact-email-bg: rgba(245,166,35,0.1);  --contact-email-border-icon: rgba(245,166,35,0.2);
+  --contact-li-color:     #e8453c; --contact-li-border:    rgba(232,69,60,0.5);   --contact-li-bg:    rgba(232,69,60,0.1);   --contact-li-border-icon:    rgba(232,69,60,0.2);
+}
+
+/* ── ARCTIC (ice blue / frost / mint) ── */
+[data-theme="arctic"] {
+  --bg:           #060d14;
+  --card:         #0c1824;
+  --card-border:  #152535;
+  --accent:       #7dd3fc;
+  --accent2:      #a5f3fc;
+  --accent3:      #6ee7b7;
+  --text:         #e8f4fd;
+  --muted:        #4a7090;
+  --grid-color:   rgba(125,211,252,0.03);
+  --nav-bg:       rgba(6,13,20,0.85);
+  --nav-border:   rgba(125,211,252,0.1);
+  --tag-engine-color:    #7dd3fc;  --tag-engine-border:  rgba(125,211,252,0.3);  --tag-engine-bg:      rgba(125,211,252,0.06); --tag-engine-hover:  rgba(125,211,252,0.15); --tag-engine-glow:   rgba(125,211,252,0.2);
+  --tag-lang-color:      #a5f3fc;  --tag-lang-border:    rgba(165,243,252,0.3);  --tag-lang-bg:        rgba(165,243,252,0.06); --tag-lang-hover:    rgba(165,243,252,0.15); --tag-lang-glow:     rgba(165,243,252,0.2);
+  --tag-backend-color:   #6ee7b7;  --tag-backend-border: rgba(110,231,183,0.3);  --tag-backend-bg:     rgba(110,231,183,0.06); --tag-backend-hover: rgba(110,231,183,0.15); --tag-backend-glow:  rgba(110,231,183,0.2);
+  --tag-tool-color:      #7dd3fc;  --tag-tool-border:    rgba(125,211,252,0.25); --tag-tool-bg:        rgba(125,211,252,0.05); --tag-tool-hover:    rgba(125,211,252,0.12); --tag-tool-glow:     rgba(125,211,252,0.2);
+  --tag-mgmt-color:      #6ee7b7;  --tag-mgmt-border:    rgba(110,231,183,0.25); --tag-mgmt-bg:        rgba(110,231,183,0.05); --tag-mgmt-hover:    rgba(110,231,183,0.12); --tag-mgmt-glow:     rgba(110,231,183,0.2);
+  --badge-platform-color: #6ee7b7; --badge-platform-border: rgba(110,231,183,0.3);  --badge-platform-bg: rgba(110,231,183,0.06);
+  --badge-role-color:     #a5f3fc; --badge-role-border:     rgba(165,243,252,0.3);  --badge-role-bg:     rgba(165,243,252,0.06);
+  --badge-company-color:  #7dd3fc; --badge-company-border:  rgba(125,211,252,0.3);  --badge-company-bg:  rgba(125,211,252,0.06);
+  --contact-phone-color:  #6ee7b7; --contact-phone-border: rgba(110,231,183,0.5);  --contact-phone-bg: rgba(110,231,183,0.1);  --contact-phone-border-icon: rgba(110,231,183,0.2);
+  --contact-email-color:  #7dd3fc; --contact-email-border: rgba(125,211,252,0.5);  --contact-email-bg: rgba(125,211,252,0.1);  --contact-email-border-icon: rgba(125,211,252,0.2);
+  --contact-li-color:     #a5f3fc; --contact-li-border:    rgba(165,243,252,0.5);  --contact-li-bg:    rgba(165,243,252,0.1);  --contact-li-border-icon:    rgba(165,243,252,0.2);
+}
+
+/* ── CRIMSON (rose / orange / amber) ── */
+[data-theme="crimson"] {
+  --bg:           #0f0508;
+  --card:         #1a080d;
+  --card-border:  #3a1020;
+  --accent:       #f43f5e;
+  --accent2:      #fb923c;
+  --accent3:      #fbbf24;
+  --text:         #fef2f2;
+  --muted:        #7a4050;
+  --grid-color:   rgba(244,63,94,0.03);
+  --nav-bg:       rgba(15,5,8,0.85);
+  --nav-border:   rgba(244,63,94,0.1);
+  --tag-engine-color:    #f43f5e;  --tag-engine-border:  rgba(244,63,94,0.3);    --tag-engine-bg:      rgba(244,63,94,0.06);   --tag-engine-hover:  rgba(244,63,94,0.15);   --tag-engine-glow:   rgba(244,63,94,0.2);
+  --tag-lang-color:      #fb923c;  --tag-lang-border:    rgba(251,146,60,0.3);   --tag-lang-bg:        rgba(251,146,60,0.06);  --tag-lang-hover:    rgba(251,146,60,0.15);  --tag-lang-glow:     rgba(251,146,60,0.2);
+  --tag-backend-color:   #fbbf24;  --tag-backend-border: rgba(251,191,36,0.3);   --tag-backend-bg:     rgba(251,191,36,0.06);  --tag-backend-hover: rgba(251,191,36,0.15);  --tag-backend-glow:  rgba(251,191,36,0.2);
+  --tag-tool-color:      #f43f5e;  --tag-tool-border:    rgba(244,63,94,0.25);   --tag-tool-bg:        rgba(244,63,94,0.05);   --tag-tool-hover:    rgba(244,63,94,0.12);   --tag-tool-glow:     rgba(244,63,94,0.2);
+  --tag-mgmt-color:      #fbbf24;  --tag-mgmt-border:    rgba(251,191,36,0.25);  --tag-mgmt-bg:        rgba(251,191,36,0.05);  --tag-mgmt-hover:    rgba(251,191,36,0.12);  --tag-mgmt-glow:     rgba(251,191,36,0.2);
+  --badge-platform-color: #fbbf24; --badge-platform-border: rgba(251,191,36,0.3);  --badge-platform-bg: rgba(251,191,36,0.06);
+  --badge-role-color:     #fb923c; --badge-role-border:     rgba(251,146,60,0.3);  --badge-role-bg:     rgba(251,146,60,0.06);
+  --badge-company-color:  #f43f5e; --badge-company-border:  rgba(244,63,94,0.3);   --badge-company-bg:  rgba(244,63,94,0.06);
+  --contact-phone-color:  #fbbf24; --contact-phone-border: rgba(251,191,36,0.5);  --contact-phone-bg: rgba(251,191,36,0.1);  --contact-phone-border-icon: rgba(251,191,36,0.2);
+  --contact-email-color:  #f43f5e; --contact-email-border: rgba(244,63,94,0.5);   --contact-email-bg: rgba(244,63,94,0.1);   --contact-email-border-icon: rgba(244,63,94,0.2);
+  --contact-li-color:     #fb923c; --contact-li-border:    rgba(251,146,60,0.5);  --contact-li-bg:    rgba(251,146,60,0.1);  --contact-li-border-icon:    rgba(251,146,60,0.2);
+}
 /* ============================================================
    SHARED BASE STYLES
    ============================================================ */

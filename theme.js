@@ -8,7 +8,31 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   var host = window.location.hostname;
-  var isLocal = host === 'localhost' || host === '127.0.0.1' || host.includes('github.io');
+  var isLocal = host === 'localhost'
+    || host === '127.0.0.1'
+    || host.includes('github.io')
+    || /^192\.168\./.test(host)
+    || /^10\./.test(host)
+    || /^172\.(1[6-9]|2\d|3[01])\./.test(host);
+
+  // On production — do nothing, no switchers injected
+  if (!isLocal) return;
+
+  // ── Load switcher.html and inject into page ──
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'switcher.html', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    var div = document.createElement('div');
+    div.innerHTML = xhr.responseText;
+    while (div.firstChild) {
+      document.body.appendChild(div.firstChild);
+    }
+    wireTheme();
+    loadFonts();
+  };
+  xhr.onerror = function () { console.warn('switcher.html could not be loaded'); };
+  xhr.send();
 
   // ── THEME ──
   function applyTheme(theme) {
@@ -19,44 +43,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  applyTheme(localStorage.getItem('portfolio-theme') || 'cyber');
+  function wireTheme() {
+    applyTheme(localStorage.getItem('portfolio-theme') || 'cyber');
 
-  document.getElementById('themeToggle').addEventListener('click', function (e) {
-    e.stopPropagation();
-    document.getElementById('themeOptions').classList.toggle('open');
-    document.getElementById('fontOptions').classList.remove('open');
-  });
-
-  document.querySelectorAll('.theme-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      applyTheme(btn.dataset.theme);
-      document.getElementById('themeOptions').classList.remove('open');
+    document.getElementById('themeToggle').addEventListener('click', function (e) {
+      e.stopPropagation();
+      document.getElementById('themeOptions').classList.toggle('open');
+      document.getElementById('fontOptions').classList.remove('open');
     });
-  });
 
-  // Hide both switchers on production
-  if (!isLocal) {
-    document.querySelectorAll('.theme-switcher, .font-switcher').forEach(function (el) {
-      el.style.display = 'none';
+    document.querySelectorAll('.theme-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyTheme(btn.dataset.theme);
+        document.getElementById('themeOptions').classList.remove('open');
+      });
     });
-    return;
   }
 
   // ── FONT ──
-  // Read font options from the <link> element's sheet cssRules comments
-  // Instead of fetch, use XMLHttpRequest which is not blocked by Live Server CSP
-  function loadFontOptions(callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'fonts.css', true);
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        callback(xhr.responseText);
-      }
+  function loadFonts() {
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open('GET', 'fonts.css', true);
+    xhr2.onload = function () {
+      if (xhr2.status !== 200) return;
+      var options = parseFontOptions(xhr2.responseText);
+      if (!options.length) { console.warn('No font options found in fonts.css'); return; }
+      buildFontSwitcher(options);
+      var savedFont = localStorage.getItem('portfolio-font') || options[0].id;
+      applyFont(savedFont, options);
+      document.getElementById('fontToggle').addEventListener('click', function (e) {
+        e.stopPropagation();
+        document.getElementById('fontOptions').classList.toggle('open');
+        document.getElementById('themeOptions').classList.remove('open');
+      });
     };
-    xhr.onerror = function () {
-      console.warn('Could not load fonts.css');
-    };
-    xhr.send();
+    xhr2.onerror = function () { console.warn('fonts.css could not be loaded'); };
+    xhr2.send();
   }
 
   function parseFontOptions(css) {
@@ -74,14 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var m = b.match(new RegExp('\\b' + key + ':\\s*(.+)'));
           return m ? m[1].trim() : '';
         }
-        return {
-          id:      get('id'),
-          name:    get('name'),
-          imp:     get('import'),
-          body:    get('body'),
-          display: get('display'),
-          mono:    get('mono'),
-        };
+        return { id: get('id'), name: get('name'), imp: get('import'), body: get('body'), display: get('display'), mono: get('mono') };
       })(block));
     }
     return options;
@@ -134,30 +149,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  loadFontOptions(function (css) {
-    var options = parseFontOptions(css);
-    if (!options.length) {
-      console.warn('No font options found in fonts.css');
-      return;
-    }
-
-    buildFontSwitcher(options);
-
-    var savedFont = localStorage.getItem('portfolio-font') || options[0].id;
-    applyFont(savedFont, options);
-
-    document.getElementById('fontToggle').addEventListener('click', function (e) {
-      e.stopPropagation();
-      document.getElementById('fontOptions').classList.toggle('open');
-      document.getElementById('themeOptions').classList.remove('open');
-    });
-  });
-
   // Close both on outside click
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.theme-switcher') && !e.target.closest('.font-switcher')) {
-      document.getElementById('themeOptions').classList.remove('open');
+      var to = document.getElementById('themeOptions');
       var fo = document.getElementById('fontOptions');
+      if (to) to.classList.remove('open');
       if (fo) fo.classList.remove('open');
     }
   });

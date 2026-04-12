@@ -1,0 +1,30 @@
+<!-- ============================================================
+     SWITCHER.HTML — Single source for font + theme switchers
+     To add a theme: add a new <button class="theme-btn"> here
+     To add a font:  add a new @font-option block in fonts.css
+     ============================================================ -->
+
+<!-- FONT SWITCHER -->
+<div class="font-switcher">
+  <div class="font-options" id="fontOptions">
+    <!-- Built dynamically by theme.js from fonts.css -->
+  </div>
+  <button class="font-toggle-btn" id="fontToggle">⬡ FONT</button>
+</div>
+
+<!-- THEME SWITCHER -->
+<div class="theme-switcher">
+  <div class="theme-options" id="themeOptions">
+    <button class="theme-btn" data-theme="cyber"><span class="theme-dot" style="background:#00d4ff"></span>Cyber</button>
+    <button class="theme-btn" data-theme="ember"><span class="theme-dot" style="background:#ff6b2b"></span>Ember</button>
+    <button class="theme-btn" data-theme="forest"><span class="theme-dot" style="background:#00ff88"></span>Forest</button>
+    <button class="theme-btn" data-theme="void"><span class="theme-dot" style="background:#a855f7"></span>Void</button>
+    <button class="theme-btn" data-theme="aurora"><span class="theme-dot" style="background:#2dd4bf"></span>Aurora</button>
+    <button class="theme-btn" data-theme="tokyo"><span class="theme-dot" style="background:#ff2d78"></span>Tokyo</button>
+    <button class="theme-btn" data-theme="slate"><span class="theme-dot" style="background:#6366f1"></span>Slate</button>
+    <button class="theme-btn" data-theme="gold"><span class="theme-dot" style="background:#f5a623"></span>Gold</button>
+    <button class="theme-btn" data-theme="arctic"><span class="theme-dot" style="background:#7dd3fc"></span>Arctic</button>
+    <button class="theme-btn" data-theme="crimson"><span class="theme-dot" style="background:#f43f5e"></span>Crimson</button>
+  </div>
+  <button class="theme-toggle-btn" id="themeToggle">⬡ THEME</button>
+</div>
