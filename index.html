@@ -292,17 +292,16 @@
       cursor: default;
     }
 
-    .tag-engine  { color: #00d4ff; border-color: rgba(0,212,255,0.3);   background: rgba(0,212,255,0.06);   }
-    .tag-lang    { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.06); }
-    .tag-backend { color: #10b981; border-color: rgba(16,185,129,0.3);  background: rgba(16,185,129,0.06);  }
-    .tag-tool    { color: #f59e0b; border-color: rgba(245,158,11,0.3);  background: rgba(245,158,11,0.06);  }
-    .tag-mgmt    { color: #f472b6; border-color: rgba(244,114,182,0.3); background: rgba(244,114,182,0.06); }
+    .tag-engine, .tag-lang, .tag-backend, .tag-tool, .tag-mgmt {
+      color: var(--accent3);
+      border-color: color-mix(in srgb, var(--accent3) 30%, transparent);
+      background: color-mix(in srgb, var(--accent3) 8%, transparent);
+    }
 
-    .tag-engine:hover  { background: rgba(0,212,255,0.15);   box-shadow: 0 0 12px rgba(0,212,255,0.2);   }
-    .tag-lang:hover    { background: rgba(167,139,250,0.15); box-shadow: 0 0 12px rgba(167,139,250,0.2); }
-    .tag-backend:hover { background: rgba(16,185,129,0.15);  box-shadow: 0 0 12px rgba(16,185,129,0.2);  }
-    .tag-tool:hover    { background: rgba(245,158,11,0.15);  box-shadow: 0 0 12px rgba(245,158,11,0.2);  }
-    .tag-mgmt:hover    { background: rgba(244,114,182,0.15); box-shadow: 0 0 12px rgba(244,114,182,0.2); }
+    .tag-engine:hover, .tag-lang:hover, .tag-backend:hover, .tag-tool:hover, .tag-mgmt:hover {
+      background: color-mix(in srgb, var(--accent3) 16%, transparent);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--accent3) 25%, transparent);
+    }
 
     /* TIMELINE */
     .timeline { position: relative; padding-left: 28px; }
@@ -476,16 +475,35 @@
     </div>
 
     <div class="skill-group">
-      <div class="skill-group-label">▸ Tools &amp; Practices</div>
+      <div class="skill-group-label">▸ Version Control</div>
+      <div class="tags">
+        <span class="tag tag-backend">GitHub</span>
+        <span class="tag tag-backend">Bitbucket</span>
+        <span class="tag tag-backend">SVN</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">▸ DevOps &amp; Tools</div>
       <div class="tags">
         <span class="tag tag-tool">Jenkins</span>
-        <span class="tag tag-tool">GitHub</span>
-        <span class="tag tag-tool">Bitbucket</span>
         <span class="tag tag-tool">CI/CD</span>
-        <span class="tag tag-tool">TDD</span>
-        <span class="tag tag-tool">SOLID</span>
-        <span class="tag tag-tool">Zenject</span>
         <span class="tag tag-tool">Protobuf</span>
+        <span class="tag tag-tool">Zenject</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">▸ Principles &amp; Practices</div>
+      <div class="tags">
+        <span class="tag tag-lang">OOP</span>
+        <span class="tag tag-lang">SOLID Principles</span>
+        <span class="tag tag-lang">Design Patterns</span>
+        <span class="tag tag-lang">Software Architecture</span>
+        <span class="tag tag-lang">TDD</span>
+        <span class="tag tag-lang">Unit Testing</span>
+        <span class="tag tag-lang">Debugging</span>
+        <span class="tag tag-lang">Shell Scripting</span>
       </div>
     </div>
 
@@ -494,8 +512,6 @@
       <div class="tags">
         <span class="tag tag-mgmt">Engineering Management</span>
         <span class="tag tag-mgmt">Team Building</span>
-        <span class="tag tag-mgmt">Software Architecture</span>
-        <span class="tag tag-mgmt">Design Patterns</span>
       </div>
     </div>
   </div>
