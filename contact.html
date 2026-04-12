@@ -214,6 +214,8 @@
     .email   .contact-label { color: var(--accent); }
     .linkedin .contact-label { color: #a78bfa; }
 
+    .contact-item.phone .contact-value { color: var(--text); }
+
     .contact-value {
       font-size: 15px;
       font-weight: 500;
@@ -235,42 +237,6 @@
     .email:hover   .contact-arrow { color: var(--accent); }
     .linkedin:hover .contact-arrow { color: #a78bfa; }
 
-    /* STATUS CARD */
-    .status-card {
-      margin-top: 32px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      opacity: 0;
-      animation: fadeUp 0.5s ease forwards 0.75s;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent3);
-      box-shadow: 0 0 10px var(--accent3);
-      flex-shrink: 0;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 6px var(--accent3); }
-      50%       { box-shadow: 0 0 16px var(--accent3); }
-    }
-
-    .status-text {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      color: var(--accent3);
-    }
-
-    .status-text span { color: var(--muted); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -283,7 +249,7 @@
 
 <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
@@ -308,11 +274,11 @@
       <div class="contact-arrow">→</div>
     </div>
 
-    <a class="contact-item email" href="mailto:mayur1689@yahoo.com">
+    <a class="contact-item email" href="/cdn-cgi/l/email-protection#335e524a464102050b0a734a525b5c5c1d505c5e">
       <div class="contact-icon">✉️</div>
       <div class="contact-info">
         <div class="contact-label">Email</div>
-        <div class="contact-value">mayur1689@yahoo.com</div>
+        <div class="contact-value"><span class="__cf_email__" data-cfemail="412c2038343370777978013820292e2e6f222e2c">[email&#160;protected]</span></div>
       </div>
       <div class="contact-arrow">→</div>
     </a>
@@ -328,12 +294,3 @@
 
   </div>
 
-  <div class="status-card">
-    <div class="status-dot"></div>
-    <div class="status-text">Available for opportunities <span>· Mumbai, India</span></div>
-  </div>
-
-</div>
-
-</body>
-</html>
