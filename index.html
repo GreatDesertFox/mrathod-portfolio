@@ -274,7 +274,7 @@
     .skill-group-label {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--muted);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.15em;
       margin-bottom: 10px;
@@ -338,8 +338,10 @@
     .timeline-company { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
     .timeline-role    { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-top: 2px; }
     .timeline-period  { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .timeline-dates   { font-size: 11px; color: var(--accent); font-family: var(--font-mono); letter-spacing: 0.05em; margin-top: 3px; opacity: 0.8; }
-    .timeline-duration { font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-top: 1px; }
+    .timeline-meta    { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-top: 4px; font-family: var(--font-mono); font-size: 11px; }
+    .timeline-dates   { color: var(--text); font-weight: 600; }
+    .timeline-sep     { color: var(--muted); opacity: 0.4; }
+    .timeline-duration { color: var(--muted); }
 
     /* RESUME BUTTON */
     .btn-resume {
@@ -507,8 +509,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">QilaGames</div>
         <div class="timeline-role">Principal Software Engineer</div>
-        <div class="timeline-dates">Mar 2025 – Present</div>
-        <div class="timeline-duration">~ 1 yr · Bangalore, KA</div>
+        <div class="timeline-meta"><span class="timeline-dates">Mar 2025 – Present</span><span class="timeline-sep">·</span><span class="timeline-duration">~ 1 yr</span><span class="timeline-sep">·</span><span class="timeline-duration">Bangalore, KA</span></div>
         <div class="timeline-period">Ludo Hero</div>
       </div>
 
@@ -516,8 +517,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">Longbow Games Pvt. Ltd.</div>
         <div class="timeline-role">Principal Software Engineer</div>
-        <div class="timeline-dates">Jun 2021 – Feb 2025</div>
-        <div class="timeline-duration">3 yrs 9 mo · Mysuru, KA</div>
+        <div class="timeline-meta"><span class="timeline-dates">Jun 2021 – Feb 2025</span><span class="timeline-sep">·</span><span class="timeline-duration">3 yrs 9 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Mysuru, KA</span></div>
         <div class="timeline-period">Battle Bay · Almost a Hero · Mine Rescue · Yoga Quest</div>
       </div>
 
@@ -525,8 +525,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">JetSynthesys</div>
         <div class="timeline-role">Sr. Game Programmer</div>
-        <div class="timeline-dates">Nov 2018 – May 2021</div>
-        <div class="timeline-duration">2 yrs 7 mo · Pune, MH</div>
+        <div class="timeline-meta"><span class="timeline-dates">Nov 2018 – May 2021</span><span class="timeline-sep">·</span><span class="timeline-duration">2 yrs 7 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Pune, MH</span></div>
         <div class="timeline-period">Sachin Saga Cricket Champions</div>
       </div>
 
@@ -534,8 +533,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">Emdep – Testboards</div>
         <div class="timeline-role">Software Developer</div>
-        <div class="timeline-dates">Jun 2017 – Oct 2018</div>
-        <div class="timeline-duration">1 yr 5 mo · Pune, MH</div>
+        <div class="timeline-meta"><span class="timeline-dates">Jun 2017 – Oct 2018</span><span class="timeline-sep">·</span><span class="timeline-duration">1 yr 5 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Pune, MH</span></div>
         <div class="timeline-period">AR / HoloLens · Automotive industry</div>
       </div>
 
@@ -543,8 +541,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">Vroovy Hungama Gameshastra</div>
         <div class="timeline-role">Game Developer</div>
-        <div class="timeline-dates">Jan 2015 – May 2017</div>
-        <div class="timeline-duration">2 yrs 5 mo · Mumbai, MH</div>
+        <div class="timeline-meta"><span class="timeline-dates">Jan 2015 – May 2017</span><span class="timeline-sep">·</span><span class="timeline-duration">2 yrs 5 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Mumbai, MH</span></div>
         <div class="timeline-period">Airlift · Flying Jatt · Krrish 3</div>
       </div>
 
@@ -552,8 +549,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">Anuva Technologies Pvt. Ltd.</div>
         <div class="timeline-role">Game Developer</div>
-        <div class="timeline-dates">May 2014 – Dec 2014</div>
-        <div class="timeline-duration">8 mo · Pune, MH</div>
+        <div class="timeline-meta"><span class="timeline-dates">May 2014 – Dec 2014</span><span class="timeline-sep">·</span><span class="timeline-duration">8 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Pune, MH</span></div>
         <div class="timeline-period">Prototyping · SDK Integration · Gameplay Development</div>
       </div>
 
@@ -561,8 +557,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-company">Indusgeeks Solutions Pvt. Ltd.</div>
         <div class="timeline-role">Software Developer</div>
-        <div class="timeline-dates">Jul 2012 – Apr 2014</div>
-        <div class="timeline-duration">1 yr 10 mo · Mumbai, MH</div>
+        <div class="timeline-meta"><span class="timeline-dates">Jul 2012 – Apr 2014</span><span class="timeline-sep">·</span><span class="timeline-duration">1 yr 10 mo</span><span class="timeline-sep">·</span><span class="timeline-duration">Mumbai, MH</span></div>
         <div class="timeline-period">Healthcare Simulations · Training Systems</div>
       </div>
 
