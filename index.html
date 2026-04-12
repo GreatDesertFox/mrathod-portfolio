@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mayur Rathod | Principal Game Engineer</title>
-  <link rel="stylesheet" href="fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
   <script src="theme.js"></script>
 
@@ -13,7 +13,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--font-body);
+      font-family: 'Exo 2', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -65,7 +65,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 6px 4px;
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       transition: color 0.3s ease;
     }
 
@@ -99,7 +99,7 @@
     }
 
     .hero-tag {
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       font-size: 12px;
       color: var(--accent);
       letter-spacing: 0.2em;
@@ -112,7 +112,7 @@
     .hero-tag::before { content: '> '; opacity: 0.5; }
 
     .hero h1 {
-      font-family: var(--font-display);
+      font-family: 'Rajdhani', sans-serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 700;
       line-height: 1.05;
@@ -129,7 +129,7 @@
     }
 
     .typing-container {
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       font-size: 1.1rem;
       color: var(--accent3);
       margin-bottom: 32px;
@@ -170,7 +170,7 @@
     .stat:hover { background: rgba(0,212,255,0.05); }
 
     .stat-number {
-      font-family: var(--font-display);
+      font-family: 'Rajdhani', sans-serif;
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--accent);
@@ -184,12 +184,12 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 4px;
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
     }
 
     /* SECTION TITLE */
     .section-title {
-      font-family: var(--font-display);
+      font-family: 'Rajdhani', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--accent);
@@ -266,7 +266,7 @@
     .skill-group:last-child { margin-bottom: 0; }
 
     .skill-group-label {
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       font-size: 11px;
       color: var(--muted);
       text-transform: uppercase;
@@ -277,7 +277,7 @@
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .tag {
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       font-size: 12px;
       padding: 5px 12px;
       border-radius: 4px;
@@ -329,11 +329,11 @@
     .timeline-item:nth-child(6) .timeline-dot { background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
     .timeline-item:nth-child(7) .timeline-dot { background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
 
-    .timeline-company { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
-    .timeline-role    { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-top: 2px; }
+    .timeline-company { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .timeline-role    { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-top: 2px; }
     .timeline-period  { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .timeline-dates   { font-size: 11px; color: var(--accent); font-family: var(--font-mono); letter-spacing: 0.05em; margin-top: 3px; opacity: 0.8; }
-    .timeline-duration { font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-top: 1px; }
+    .timeline-dates   { font-size: 11px; color: var(--accent); font-family: 'Share Tech Mono', monospace; letter-spacing: 0.05em; margin-top: 3px; opacity: 0.8; }
+    .timeline-duration { font-size: 11px; color: var(--muted); font-family: 'Share Tech Mono', monospace; margin-top: 1px; }
 
     /* RESUME BUTTON */
     .btn-resume {
@@ -345,7 +345,7 @@
       background: transparent;
       border: 1px solid rgba(0,212,255,0.5);
       color: var(--accent);
-      font-family: var(--font-mono);
+      font-family: 'Share Tech Mono', monospace;
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -591,6 +591,33 @@
   type();
 </script>
 
+
+<!-- FONT SWITCHER -->
+<div class="font-switcher">
+  <div class="font-options" id="fontOptions">
+    <button class="font-btn" data-font="scifi">
+      <span class="font-btn-name">Sci-Fi / Techy</span>
+      <span class="font-btn-preview" style="font-family:'Rajdhani',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="modern">
+      <span class="font-btn-name">Clean / Modern</span>
+      <span class="font-btn-preview" style="font-family:'Syne',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="bold">
+      <span class="font-btn-name">Bold / Editorial</span>
+      <span class="font-btn-preview" style="font-family:'Bebas Neue',sans-serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="elegant">
+      <span class="font-btn-name">Elegant / Minimal</span>
+      <span class="font-btn-preview" style="font-family:'Cormorant Garamond',serif">Mayur Rathod</span>
+    </button>
+    <button class="font-btn" data-font="gamedev">
+      <span class="font-btn-name">Game Dev Pro</span>
+      <span class="font-btn-preview" style="font-family:'Oxanium',sans-serif">Mayur Rathod</span>
+    </button>
+  </div>
+  <button class="font-toggle-btn" id="fontToggle">⬡ FONT</button>
+</div>
 <div class="theme-switcher">
   <div class="theme-options" id="themeOptions">
     <button class="theme-btn" data-theme="cyber"><span class="theme-dot" style="background:#00d4ff"></span>Cyber</button>

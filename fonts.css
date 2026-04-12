@@ -1,51 +1,80 @@
 /* ============================================================
    FONTS.CSS — Single source of truth for all fonts
-   To swap fonts: change the @import URL and the variables below
+   To change font: update "active" to another font id below
+   To add a new font: add a new @font-option block
    ============================================================ */
 
-/* ── Active font import ── */
+/* ── ACTIVE FONT — change this id to switch ── */
+/* @active-font: scifi */
+
+/* ============================================================
+   FONT OPTIONS — parsed by theme.js for the font switcher
+   Each block defines one font combo available in the previewer
+   Format (all fields required):
+     @font-option-start
+     id:      unique key used in localStorage
+     name:    label shown in the switcher
+     import:  full Google Fonts URL
+     body:    --font-body value
+     display: --font-display value
+     mono:    --font-mono value
+     @font-option-end
+   ============================================================ */
+
+/* @font-option-start
+   id:      scifi
+   name:    Sci-Fi / Techy
+   import:  https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap
+   body:    'Exo 2', sans-serif
+   display: 'Rajdhani', sans-serif
+   mono:    'Share Tech Mono', monospace
+   @font-option-end */
+
+/* @font-option-start
+   id:      modern
+   name:    Clean / Modern
+   import:  https://fonts.googleapis.com/css2?family=Fira+Code&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap
+   body:    'DM Sans', sans-serif
+   display: 'Syne', sans-serif
+   mono:    'Fira Code', monospace
+   @font-option-end */
+
+/* @font-option-start
+   id:      bold
+   name:    Bold / Editorial
+   import:  https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Bebas+Neue&family=Barlow:wght@300;400;500&display=swap
+   body:    'Barlow', sans-serif
+   display: 'Bebas Neue', sans-serif
+   mono:    'JetBrains Mono', monospace
+   @font-option-end */
+
+/* @font-option-start
+   id:      elegant
+   name:    Elegant / Minimal
+   import:  https://fonts.googleapis.com/css2?family=Space+Mono&family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap
+   body:    'Inter', sans-serif
+   display: 'Cormorant Garamond', serif
+   mono:    'Space Mono', monospace
+   @font-option-end */
+
+/* @font-option-start
+   id:      gamedev
+   name:    Game Dev Pro
+   import:  https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Outfit:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap
+   body:    'Outfit', sans-serif
+   display: 'Oxanium', sans-serif
+   mono:    'IBM Plex Mono', monospace
+   @font-option-end */
+
+/* ── Active font applied here (matches @active-font above) ── */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap');
 
-/* ── Font role variables ──
-   --font-body    : used for all body text and general UI
-   --font-display : used for headings, names, titles
-   --font-mono    : used for tags, labels, code-style text, nav
-   ── */
 :root {
   --font-body:    'Exo 2', sans-serif;
   --font-display: 'Rajdhani', sans-serif;
   --font-mono:    'Share Tech Mono', monospace;
 }
 
-/* ── Apply globally ── */
 body {
   font-family: var(--font-body);
 }
-
-/* ============================================================
-   FONT SWAP EXAMPLES — uncomment one block to preview
-
-   Sci-fi / techy feel (current):
-   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap');
-   --font-body:    'Exo 2', sans-serif;
-   --font-display: 'Rajdhani', sans-serif;
-   --font-mono:    'Share Tech Mono', monospace;
-
-   Clean / modern:
-   @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-   --font-body:    'DM Sans', sans-serif;
-   --font-display: 'Syne', sans-serif;
-   --font-mono:    'Fira Code', monospace;
-
-   Bold / editorial:
-   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Bebas+Neue&family=Barlow:wght@300;400;500&display=swap');
-   --font-body:    'Barlow', sans-serif;
-   --font-display: 'Bebas Neue', sans-serif;
-   --font-mono:    'JetBrains Mono', monospace;
-
-   Elegant / minimal:
-   @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
-   --font-body:    'Inter', sans-serif;
-   --font-display: 'Cormorant Garamond', serif;
-   --font-mono:    'Space Mono', monospace;
-   ============================================================ */
