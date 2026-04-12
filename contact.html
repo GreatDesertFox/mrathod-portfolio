@@ -206,7 +206,18 @@
     .email   .contact-label { color: var(--accent); }
     .linkedin .contact-label { color: #a78bfa; }
 
-    .contact-item.phone .contact-value { color: var(--text); }
+    .contact-item.phone .contact-value {
+      color: #10b981;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    /* Override mobile browser auto-detected phone link color */
+    .contact-item.phone .contact-value a,
+    .contact-item.phone .contact-value a:link,
+    .contact-item.phone .contact-value a:visited {
+      color: #10b981 !important;
+      text-decoration: none;
+    }
 
     .contact-value {
       font-size: 15px;
@@ -261,7 +272,7 @@
       <div class="contact-icon">📱</div>
       <div class="contact-info">
         <div class="contact-label">Phone</div>
-        <div class="contact-value">+91 9833561646</div>
+        <div class="contact-value"><a href="tel:+919833561646">+91 9833561646</a></div>
       </div>
       <div class="contact-arrow">→</div>
     </div>
