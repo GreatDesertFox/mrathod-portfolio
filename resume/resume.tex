@@ -1,0 +1,255 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+%\usepackage{fourier}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\usepackage[margin=1.4cm]{geometry}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.15in}
+ \addtolength{\textwidth}{0.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}\vspace{0pt}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Large \scshape Mayur Rathod} \\[2mm]
+    \footnotesize \raisebox{-0.1\height}
+    \faPhone\ \underline{(+91) 9833561646} ~ 
+    {\faEnvelope\  \underline{mayur1689@yahoo.com}} ~ 
+    {\faLinkedin\ \underline{\href{https://www.linkedin.com/in/mrathodgamedev/}{linkedin.com/in/mrathodgamedev/}}}  ~
+    %{\faGithub\ \underline{\href{https://github.com/m-scott}{github.com/m-scott}}} ~
+    {\faBriefcase\ \underline{\href{https://mrathodgamedev.com/}{mrathodgamedev.com/}}}
+    \vspace{-8pt}
+\end{center}
+
+\vspace{5pt}
+
+\section{About Me} 
+    \vspace{2pt}
+        \noindent Principal Game Engineer with \textbf{14+ years} delivering high-performance mobile games across genres. Proven track record of leading small teams to ship quality products on time --- cutting draw calls by \textbf{87\%}, improving FPS from 30 to 60, and building CI/CD pipelines that accelerate delivery cycles. Expert in Unity3D, gameplay systems, live-ops, build automation, and engineering management.
+
+ %-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+    \vspace{2pt}
+         \begin{itemize}[leftmargin=0.02in, label={}]
+            \small{\item{
+             \textbf{Game Engines}{: Unity3D, Unreal Engine, Cocos2d, Raylib} \\[1mm]
+             \textbf{Languages}{: C\#, C++, Python, JavaScript, PHP, Shell Script} \\[1mm]
+             \textbf{Backend \& Services}{: Playfab, RESTful APIs, Node.js, Express, PHP, PostgreSQL, MySQL} \\[1mm]
+             \textbf{Version Control}{: GitHub, Bitbucket, SVN} \\[1mm]
+             \textbf{DevOps \& Tools}{: Jenkins, CI/CD, AWS (EC2, S3), Protobuf, Zenject, Build Automation} \\[1mm]
+             \textbf{Principles \& Practices}{: OOP, SOLID Principles, Design Patterns, Software Architecture, TDD, Unit Testing, Debugging} \\[1mm]
+             \textbf{Performance Optimization}{: Draw Call Reduction, Static Batching, GPU Instancing, Sprite Atlas, Memory \& Asset Profiling} \\[1mm]
+             \textbf{Engineering Management}{: Team Building, Technical Direction, System Architecture, Roadmaps, Code Reviews} \\[1mm]
+             \textbf{Miscellaneous}{: AR/XR/VR, HoloLens} \\[1mm]
+            }}
+         \end{itemize}
+ \vspace{-1pt}
+ 
+%-----------Experience---------------
+\section{Work Experience}
+\vspace{2pt}
+\resumeSubHeadingListStart
+    \resumeSubheading{QilaGames}{Mar 2025 -- Aug 2026}{PRINCIPAL SOFTWARE ENGINEER}{Bangalore, Karnataka, IN}
+    \vspace{4pt}
+        \item \hspace{-0.1cm} \noindent \textbf{Ludo Hero \textbar\ Team size: 4} \\  % Custom line inside the list as an item
+        \resumeItemListStart
+        \resumeItem{Delivered core gameplay features end-to-end on \textbf{Ludo Hero -- Board Adventure}, directly improving player engagement and retention metrics.}
+        \resumeItem{Built internal tooling suite: \textbf{build automation tools}, \textbf{addressable asset pipeline tools}, and \textbf{runtime feature-tweaking tools} enabling non-dev configuration without code dependency.}
+        \resumeItem{Integrated analytics tooling that enabled data-driven decisions, measurably improving gameplay loops and team velocity.}
+    \resumeItemListEnd
+    \resumeSubheading{Longbow Games Pvt. Ltd.}{Jun 2021 -- Feb 2025}{PRINCIPAL SOFTWARE ENGINEER}{Mysuru, Karnataka, IN}
+    \vspace{9pt}
+% Rovio section
+    \resumeItemListStart
+      \resumeItem{\textbf{Rovio \textbar\ Battle Bay \textbar\ Team size: 3}}
+      \resumeItem{Authored comprehensive onboarding, build and deployment documentation, \textbf{cutting developer ramp-up time} and accelerating build delivery cycles.}
+      \resumeItem{Led end-to-end coordination across multiple teams, delivering a quality product on time with consistent cross-team alignment.}
+    \resumeItemListEnd
+    \vspace{5pt} % Spacer between sub-projects
+% Carry1st section
+    \resumeItemListStart
+      \resumeItem{\textbf{Carry1st \textbar\ Mine Rescue \textbar\ Team size: 4}}
+      \resumeItem{Migrated monolithic codebase to a decoupled architecture, \textbf{significantly reducing bug frequency} and improving overall product quality.}
+      \resumeItem{Architected and managed CI/CD pipeline, \textbf{reducing deployment downtime} and enabling seamless continuous delivery.}
+      \resumeItem{Resolved a critical iOS API failure restoring data sync, leading to \textbf{measurable increase in iOS retention rates}.}
+      \resumeItem{Optimized rendering by minimising draw calls via Static Batching, GPU Instancing and Sprite Atlas — \textbf{reducing draw calls from 400+ to under 50}, improving FPS from 30--35 to \textbf{55--60} and eliminating lag on low-end devices.}
+      \resumeItem{Built QA cheat tools that \textbf{significantly improved testing efficiency} and reduced defect escape rate.}
+    \resumeItemListEnd
+    \vspace{5pt}
+% DECA section
+    \resumeItemListStart
+      \resumeItem{\textbf{DECA \textbar\ Almost a Hero \textbar\ Team size: 3}}
+      \resumeItem{Mentored junior developers, raising team code quality and accelerating their professional growth.}
+      \resumeItem{Managed CI/CD pipeline ensuring \textbf{minimal downtime} during live-ops updates for an active player base.}
+      \resumeItem{Owned direct client communication end-to-end, aligning deliverables with business objectives and \textbf{maintaining strong client relationships} throughout the project.}
+    \resumeItemListEnd
+    \resumeSubheading{JetSynthesys}{Nov 2018 -- May 2021}{SR. GAME PROGRAMMER}{Pune, Maharashtra, IN}
+    \vspace{4pt}
+        \resumeItemListStart
+            \item \hspace{-0.8cm} \noindent \textbf{Sachin Saga Cricket Champions \textbar\ Team size: 4} \\  % Custom line inside the list as an item
+            \resumeItem{Shipped core gameplay features across multiple releases, \textbf{consistently meeting quality bar and deadlines}.}
+            \resumeItem{Integrated analytics providing key performance insights that \textbf{drove data-informed product decisions}.}
+        \resumeItemListEnd
+    \resumeSubheading{Emdep - Testboards}{Jun 2017 -- Oct 2018}{SOFTWARE DEVELOPER}{Pune, Maharashtra, IN}
+    \vspace{2pt}
+    \resumeItemListStart
+        \resumeItem{Delivered multiple AR/HoloLens experiences for automotive product launches, \textbf{contributing to company recognition at the 2018 Berlin trade fair}.}
+        \resumeItem{Designed UX flows and 3D visual systems for HoloLens apps adopted by automotive industry clients.}
+        \resumeItem{Converted stakeholder requirements into actionable development tasks, defining milestones that kept projects on schedule.}
+    \resumeItemListEnd
+    \resumeSubheading{Vroovy Hungama Gameshastra}{Jan 2015 -- May 2017}{GAME DEVELOPER}{Mumbai, Maharashtra, IN}
+    \vspace{2pt}
+    \resumeItemListStart
+        \resumeItem{Shipped \textbf{2 Bollywood IP games on deadline}, contributing to high-profile licensed releases.}
+        \resumeItem{\textbf{Cut multiplayer infrastructure costs} by migrating Krrish 3 from SmartFox Server to Google Play Services Multiplayer.}
+        \resumeItem{Led R\&D on game tooling, prototyping cutting-edge approaches to improve development workflows.}
+    \resumeItemListEnd
+    \resumeSubheading{Indusgeeks Solutions Pvt. Ltd.}{Jul 2012 -- Dec 2014}{SOFTWARE DEVELOPER}{Mumbai, Maharashtra, IN}
+    \vspace{2pt}
+    \resumeItemListStart
+        \resumeItem{Gained production experience in Unity and SmartFox Server, delivering gamified healthcare simulation and training systems used in real-world training environments.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\begin{comment}
+\section{Projects} 
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+            {\textbf{{McGill Scheduler}} $|$ \emph{\href{https://mcgillscheduler.vercel.app/}{Website}{ $|$ }\href{https://github.com/Erik-Cupsa/McGill-Scheduler}{Source Code}}}{ReactJS $|$ Spring Boot $|$ PostgreSQL}
+            \\[5mm]
+          \resumeItemListStart
+            \resumeItem{Developed and deployed a full-stack web application that enhanced academic experiences of \textbf{1,000+ McGill students}}
+            \resumeItem{Utilized \textbf{PostgreSQL} for data storage, \textbf{Spring Boot} for a \textbf{RESTful API} backend, and \textbf{ReactJS} for the user interface}
+          \resumeItemListEnd
+ \vspace{-20pt}
+ \resumeProjectHeading
+            {\textbf{{Empor}} $|$ \emph{\href{https://empor.ca/}{Website}}}{NextJS $|$ TypeScript $|$ Spring Boot}
+            \\[5mm]
+          \resumeItemListStart
+            \resumeItem{\textbf{Led the development} of a full-stack marketplace application for \textbf{1,000+ university students}, utilizing \textbf{NextJS} and \textbf{TypeScript} for the frontend, \textbf{Prisma} as the ORM, \textbf{Supabase} for the database, and a \textbf{Spring Boot} backend}
+          \resumeItemListEnd
+ \vspace{-17pt}
+ \resumeProjectHeading
+{\textbf{{Premier League Match Predictor}} $|$ \emph{\href{https://premierzone.vercel.app/}{Website}{ $|$ }\href{https://github.com/Erik-Cupsa/PLWebsite}{Source Code}}}{Pandas $|$ Scikit-Learn $|$ Python}
+\\[5mm]
+\resumeItemListStart
+\resumeItem{Created a model to predict matches, integrating \textbf{data scraping} with \textbf{pandas} and \textbf{machine learning} with \textbf{scikit-learn}}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-28pt}
+
+%-----------LEADERSHIP-----------
+\section{Leadership} 
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+                   \resumeProjectHeading
+            {\textbf{{SWErikCodes}} $|$\emph{{\href{https://www.tiktok.com/@swerikcodes?lang=en}{ TikTok $|$}\href{https://www.youtube.com/channel/UCgKFOz_KrMbmypWrawtzDQg}{ YouTube $|$}\href{https://www.instagram.com/swerikcodes/}{ Instagram}}}}{Jun 2023 -- Present}
+            \\[5mm]
+          \resumeItemListStart
+            \resumeItem{Created educational coding content for \textbf{75,000+} developers, with \textbf{4,200,000+} impressions per month}
+            \resumeItem{Produced coding tutorials on advanced topics such as \textbf{data structures}, \textbf{algorithms}, and \textbf{software design principles}}
+          \resumeItemListEnd
+          \resumeSubHeadingListEnd
+ \vspace{-12pt}
+\end{comment}
+
+%-----------EDUCATION-----------
+\section{Education} 
+\vspace{2pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vidyavardhini's Vartak College, Mumbai University}{2011}
+      {Bachelor of Science | Information Technology
+      }{Vasai,Mumbai, Maharashtra, IN}
+  \resumeSubHeadingListEnd
+\vspace{-12pt}
+
+\end{document}
